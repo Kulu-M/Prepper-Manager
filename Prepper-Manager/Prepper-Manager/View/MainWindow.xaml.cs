@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prepper_Manager.View;
+using Prepper_Manager.View.Food;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,22 @@ namespace Prepper_Manager
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void b_waterOverview_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new Water_Overview();
+            win.Owner = this;
+            win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            win.ShowDialog();
+        }
+
+        private void b_foodOverview_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new Food_Overview();
+            win.Owner = this;
+            win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            win.ShowDialog();
         }
     }
 }
