@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Prepper_Manager.ViewModel;
 
 namespace Prepper_Manager
 {
@@ -29,24 +30,11 @@ namespace Prepper_Manager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            gr_mainGrid.DataContext = App._vm;
+            DataContext = new MainWindowViewModel();
+            //Console.WriteLine(MainWindowViewModel.MainWindowPages[0]);
         }
 
-        private void b_waterOverview_Click(object sender, RoutedEventArgs e)
-        {
-            var win = new Water_Overview();
-            win.Owner = this;
-            win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            win.ShowDialog();
-        }
-
-        private void b_foodOverview_Click(object sender, RoutedEventArgs e)
-        {
-            var win = new Food_Overview();
-            win.Owner = this;
-            win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            win.ShowDialog();
-        }
+        
 
     }
 }

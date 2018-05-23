@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prepper_Manager"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mainWindow="clr-namespace:Prepper_Manager.ViewModel.MainWindow"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -17,96 +18,43 @@
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid x:Name="gr_mainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="60"/>
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <materialDesign:DrawerHost HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
             <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Margin="16">
-                    <TextBlock Margin="4" HorizontalAlignment="Center">LEFT FIELD</TextBlock>
-                    <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        CommandParameter="{x:Static Dock.Left}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                        CLOSE THIS
-                    </Button>
-                    <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                        CLOSE ALL
-                    </Button>
-                </StackPanel>
+                <DockPanel MinWidth="212">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                                  DockPanel.Dock="Top"
+                                  HorizontalAlignment="Right" Margin="16"
+                                  IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                    <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                         
+                             ItemsSource="{Binding MainWindowPages}"
+                             >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="mainWindow:MainWindowPage">
+                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-            <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" CommandParameter="{x:Static Dock.Left}" x:Name="MenuToggleButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43">
-                <materialDesign:PackIcon Kind="ArrowLeft" Height="33" Width="25">
-                </materialDesign:PackIcon >
-            </Button>
-
-
-
+            <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                        x:Name="MenuToggleButton"/>
         </materialDesign:DrawerHost>
 
-        <materialDesign:Card Grid.Column="1" Grid.Row="2" Height="Auto">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="5" />
-                </Grid.RowDefinitions>
-
-                <Image Grid.Row="0" Source="/Resources/water.png" Height="200"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Water</TextBlock>
-                <Button x:Name="b_waterOverview" Width="60" Grid.Row="3" Click="b_waterOverview_Click">Edit</Button>
-            </Grid>
-        </materialDesign:Card>
-
-
-
-        <materialDesign:Card Grid.Row="2" Grid.Column="3">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="5" />
-                </Grid.RowDefinitions>
-
-
-                <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Food</TextBlock>
-                <Button x:Name="b_foodOverview" Width="60" Grid.Row="3" Click="b_foodOverview_Click">Edit</Button>
-            </Grid>
-        </materialDesign:Card>
-
-
-        <StackPanel Grid.Row="2" Grid.Column="5" VerticalAlignment="Center">
-            <materialDesign:Card Padding="32" Width="150">
-                <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
-
-        <materialDesign:Card Padding="32" Width="950" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
-            <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
-        </materialDesign:Card>
-
+        <ScrollViewer Grid.Row="1" Grid.Column="1"
+                      Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}">
+            <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
+        </ScrollViewer>
 
     </Grid>
 </Window>

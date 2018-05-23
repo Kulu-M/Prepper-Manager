@@ -74,9 +74,17 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\TipOfTheDay.cs" />
     <Compile Include="Model\Water.cs" />
+    <Compile Include="ViewModel\MainWindow\MainWindowPages.cs" />
+    <Compile Include="ViewModel\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PrepperViewModel.cs" />
     <Compile Include="View\Food\Food_Overview.xaml.cs">
       <DependentUpon>Food_Overview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Water\Water_Overview.xaml.cs">
       <DependentUpon>Water_Overview.xaml</DependentUpon>
@@ -97,6 +105,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Pages\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Water\Water_Overview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
