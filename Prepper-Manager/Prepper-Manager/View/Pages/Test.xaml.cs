@@ -18,7 +18,7 @@ namespace Prepper_Manager.View.Pages
     /// <summary>
     /// Interaction logic for Test.xaml
     /// </summary>
-    public partial class Test : Page
+    public partial class Test : UserControl
     {
         public Test()
         {
