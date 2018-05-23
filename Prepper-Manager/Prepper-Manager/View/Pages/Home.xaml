@@ -13,7 +13,7 @@
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1000">
+      d:DesignHeight="800" d:DesignWidth="1000" Loaded="UserControl_Loaded">
 
     <Grid x:Name="gr_mainGrid">
         <Grid.ColumnDefinitions>
@@ -43,10 +43,9 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
-
                 <Image Grid.Row="0" Source="/Resources/water.png" Height="200"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Water</TextBlock>
-                <Button x:Name="b_waterOverview" Width="60" Grid.Row="3">Edit</Button>
+                <Button x:Name="b_waterOverview" Width="60" Grid.Row="3" Click="b_waterOverview_Click">Edit</Button>
             </Grid>
         </materialDesign:Card>
 
@@ -61,20 +60,27 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
-
-
                 <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Food</TextBlock>
-                <Button x:Name="b_foodOverview" Width="60" Grid.Row="3">Edit</Button>
+                <Button x:Name="b_foodOverview" Width="60" Grid.Row="3" Click="b_foodOverview_Click">Edit</Button>
             </Grid>
         </materialDesign:Card>
 
 
-        <StackPanel Grid.Row="2" Grid.Column="5" VerticalAlignment="Center">
-            <materialDesign:Card Padding="32" Width="150">
-                <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
+        <materialDesign:Card Grid.Row="2" Grid.Column="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="/Resources/people.jpg" Height="200"/>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
+                <Button x:Name="b_peopleOverview" Width="60" Grid.Row="3">Edit</Button>
+            </Grid>
+        </materialDesign:Card>
 
         <materialDesign:Card Padding="32" Width="950" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>

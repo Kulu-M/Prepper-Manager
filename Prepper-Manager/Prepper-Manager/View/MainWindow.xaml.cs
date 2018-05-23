@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Prepper_Manager.Controller.TipOfTheDay;
 using Prepper_Manager.ViewModel;
 
 namespace Prepper_Manager
@@ -32,7 +33,7 @@ namespace Prepper_Manager
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = new MainWindowViewModel();
-            //Console.WriteLine(MainWindowViewModel.MainWindowPages[0]);
+            TipOfTheDay.startTipOfTheDayChanger();
         }
 
 

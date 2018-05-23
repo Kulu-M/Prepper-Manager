@@ -70,12 +70,13 @@
     <Compile Include="Controller\Persistence\DummyDataCreation.cs" />
     <Compile Include="Controller\Persistence\Load.cs" />
     <Compile Include="Controller\Persistence\Save.cs" />
+    <Compile Include="Controller\TipOfTheDay\TipOfTheDay.cs" />
     <Compile Include="Model\Food.cs" />
     <Compile Include="Model\Person.cs" />
-    <Compile Include="Model\TipOfTheDay.cs" />
     <Compile Include="Model\Water.cs" />
-    <Compile Include="ViewModel\MainWindow\MainWindowPages.cs" />
-    <Compile Include="ViewModel\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="Model\MainWindowPage.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PrepperViewModel.cs" />
     <Compile Include="View\Food\Food_Overview.xaml.cs">
       <DependentUpon>Food_Overview.xaml</DependentUpon>
@@ -145,7 +146,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\people.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\water.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -156,5 +161,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
