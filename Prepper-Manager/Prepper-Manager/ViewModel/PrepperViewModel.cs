@@ -8,5 +8,7 @@ namespace Prepper_Manager.ViewModel
 {
     public class PrepperViewModel
     {
+        public string tipOfTheDay { get; set; }
+
     }
 }

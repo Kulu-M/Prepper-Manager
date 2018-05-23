@@ -14,8 +14,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Prepper Manager" Height="800" Width="1000"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid x:Name="gr_mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="*"/>
@@ -23,16 +23,17 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <materialDesign:DrawerHost HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" >
+        <materialDesign:DrawerHost HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Margin="16">
                     <TextBlock Margin="4" HorizontalAlignment="Center">LEFT FIELD</TextBlock>
@@ -101,5 +102,11 @@
                 <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
             </materialDesign:Card>
         </StackPanel>
+
+        <materialDesign:Card Padding="32" Width="950" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
+            <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
+        </materialDesign:Card>
+
+
     </Grid>
 </Window>

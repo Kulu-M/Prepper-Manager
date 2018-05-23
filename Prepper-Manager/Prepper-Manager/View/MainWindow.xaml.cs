@@ -27,6 +27,11 @@ namespace Prepper_Manager
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            gr_mainGrid.DataContext = App._vm;
+        }
+
         private void b_waterOverview_Click(object sender, RoutedEventArgs e)
         {
             var win = new Water_Overview();
@@ -42,5 +47,6 @@ namespace Prepper_Manager
             win.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             win.ShowDialog();
         }
+
     }
 }
