@@ -66,6 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\Calculation.cs" />
+    <Compile Include="Controller\Persistence\DummyDataCreation.cs" />
+    <Compile Include="Controller\Persistence\Load.cs" />
+    <Compile Include="Controller\Persistence\Save.cs" />
+    <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\TipOfTheDay.cs" />
+    <Compile Include="Model\Water.cs" />
+    <Compile Include="ViewModel\PrepperViewModel.cs" />
     <Compile Include="View\Food\Food_Overview.xaml.cs">
       <DependentUpon>Food_Overview.xaml</DependentUpon>
     </Compile>
@@ -120,10 +129,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\water.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
