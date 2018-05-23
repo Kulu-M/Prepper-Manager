@@ -27,6 +27,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        
+        <!--region Sidebar-->
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <DockPanel MinWidth="212">
@@ -36,7 +38,7 @@
                                   IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                     <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                         
                              ItemsSource="{Binding MainWindowPages}"
-                             >
+                             PreviewMouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="mainWindow:MainWindowPage">
                                 <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
@@ -45,16 +47,21 @@
                     </ListBox>
                 </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-
-
             <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top"
                                         x:Name="MenuToggleButton"/>
         </materialDesign:DrawerHost>
 
+        
+        <!--endregion Sidebar-->
+        
+        <!--region Content-->
+
         <ScrollViewer Grid.Row="1" Grid.Column="1"
-                      Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}">
+                      >
             <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
         </ScrollViewer>
+
+        <!--endregion Content-->
 
     </Grid>
 </Window>

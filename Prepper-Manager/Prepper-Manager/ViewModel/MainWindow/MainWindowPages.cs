@@ -23,5 +23,11 @@ namespace Prepper_Manager.ViewModel.MainWindow
             get => name;
             set { }
         }
+
+        public object Content
+        {
+            get => content;
+            set { }
+        }
     }
 }
