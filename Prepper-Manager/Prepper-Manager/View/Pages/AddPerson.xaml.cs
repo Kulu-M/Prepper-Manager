@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prepper_Manager.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,18 @@ namespace Prepper_Manager.View.Pages
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            lb_personList.ItemsSource = App._vm.personList;
+            lb_personList.ItemsSource = App._vmData.personList;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var person = new AddPerson();
+
+        }
+
+        private void lb_personList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

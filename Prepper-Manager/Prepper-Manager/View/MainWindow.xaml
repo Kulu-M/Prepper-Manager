@@ -28,8 +28,9 @@
                                   DockPanel.Dock="Top"
                                   HorizontalAlignment="Right" Margin="16"
                                   IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                         
+                    <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                        
                              ItemsSource="{Binding MainWindowPages}"
+                             SelectedItem="{Binding SelectedItem}"
                              PreviewMouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="mainWindow:MainWindowPage">
@@ -49,10 +50,10 @@
 
                 <!--region Content-->
 
-
                 <ScrollViewer>
                     <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
                 </ScrollViewer>
+                
                 <!--endregion Content-->
             </DockPanel>
         </materialDesign:DrawerHost>

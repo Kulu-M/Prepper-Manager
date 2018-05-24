@@ -30,15 +30,19 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
+        <StackPanel x:Name="sp_detailsSP" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
 
-            <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" >
+            <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" >
                 <TextBox.Text>
-                    <Binding Path="Name" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding ElementName="lb_personList" Path="SelectedItem.firstName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
 
-            <TextBox materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0"/>
+            <TextBox materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0">
+                <TextBox.Text>
+                    <Binding ElementName="lb_personList" Path="SelectedItem.lastName" UpdateSourceTrigger="PropertyChanged"/>
+                </TextBox.Text>
+            </TextBox>
 
             <ComboBox materialDesign:HintAssist.Hint="Gender"  Margin="0,40,0,0" Width="200">
                 <ComboBoxItem>
@@ -64,7 +68,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="lb_personList" Grid.Row="1" Grid.ColumnSpan="2" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
+                <ListBox x:Name="lb_personList" Grid.Row="1" Grid.ColumnSpan="2" IsEnabled="{Binding IsChecked, ElementName=EnableListBox}" SelectionChanged="lb_personList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -79,7 +83,7 @@
                     <materialDesign:PackIcon Kind="AccountMinus" />
                     </Button>
 
-                <Button Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right" Margin="0,0,10,0">
+                <Button Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Button_Click">
                         <materialDesign:PackIcon Kind="AccountPlus" />
                     </Button>
                

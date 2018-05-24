@@ -16,11 +16,12 @@ namespace Prepper_Manager
     /// </summary>
     public partial class App : Application
     {
-        public static PrepperViewModel _vm = new PrepperViewModel();
+        public static PrepperViewModel _vmData = new PrepperViewModel();
+        public static MainWindowViewModel _vmView = new MainWindowViewModel();
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            _vm = DummyDataCreation.createDummyViewModel();
+            _vmData = DummyDataCreation.createDummyViewModel();
 
             //Load VM
         }

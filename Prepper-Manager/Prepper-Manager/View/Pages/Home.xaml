@@ -78,7 +78,7 @@
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Resources/people.jpg" Height="200" Margin="5"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
-                <Button x:Name="b_peopleOverview" Width="60" Grid.Row="3">Edit</Button>
+                <Button x:Name="b_peopleOverview" Width="60" Grid.Row="3" Click="b_peopleOverview_Click">Edit</Button>
             </Grid>
         </materialDesign:Card>
 

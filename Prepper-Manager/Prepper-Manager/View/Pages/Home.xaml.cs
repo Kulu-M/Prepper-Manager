@@ -28,7 +28,7 @@ namespace Prepper_Manager.View.Pages
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            gr_mainGrid.DataContext = App._vm;
+            gr_mainGrid.DataContext = App._vmData;
         }
 
         private void b_waterOverview_Click(object sender, RoutedEventArgs e)
@@ -49,6 +49,9 @@ namespace Prepper_Manager.View.Pages
             win.ShowDialog();
         }
 
-        
+        private void b_peopleOverview_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

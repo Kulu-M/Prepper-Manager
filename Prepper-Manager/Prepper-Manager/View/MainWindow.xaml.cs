@@ -32,7 +32,7 @@ namespace Prepper_Manager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = new MainWindowViewModel();
+            DataContext = App._vmView;
             TipOfTheDay.startTipOfTheDayChanger();
         }
 

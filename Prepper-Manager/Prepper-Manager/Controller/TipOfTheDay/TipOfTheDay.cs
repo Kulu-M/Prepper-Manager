@@ -36,7 +36,7 @@ namespace Prepper_Manager.Controller.TipOfTheDay
 
         private static void timer_Tick(object sender, EventArgs e)
         {
-            App._vm.tipOfTheDay = getNextTipOfTheDay();
+            App._vmData.tipOfTheDay = getNextTipOfTheDay();
         }
 
         private static string getNextTipOfTheDay()
