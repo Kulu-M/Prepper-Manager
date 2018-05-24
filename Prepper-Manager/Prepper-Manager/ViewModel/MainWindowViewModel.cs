@@ -17,7 +17,8 @@ namespace Prepper_Manager.ViewModel
             MainWindowPages = new[]
             {
                 new MainWindowPage("Home", new Home()),
-                new MainWindowPage("Test", new Test())
+                new MainWindowPage("Test", new Test()),
+                new MainWindowPage("Add Person", new AddPerson())
             };
         }
     }
