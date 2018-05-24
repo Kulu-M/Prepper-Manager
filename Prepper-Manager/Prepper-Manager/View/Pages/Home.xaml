@@ -43,7 +43,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/water.png" Height="200"/>
+                <Image Grid.Row="0" Source="/Resources/water.png" Height="200" Margin="5"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Water</TextBlock>
                 <Button x:Name="b_waterOverview" Width="60" Grid.Row="3" Click="b_waterOverview_Click">Edit</Button>
             </Grid>
@@ -60,7 +60,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200"/>
+                <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200" Margin="5"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Food</TextBlock>
                 <Button x:Name="b_foodOverview" Width="60" Grid.Row="3" Click="b_foodOverview_Click">Edit</Button>
             </Grid>
@@ -76,13 +76,13 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/people.jpg" Height="200"/>
+                <Image Grid.Row="0" Source="/Resources/people.jpg" Height="200" Margin="5"/>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
                 <Button x:Name="b_peopleOverview" Width="60" Grid.Row="3">Edit</Button>
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card Padding="32" Width="950" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
+        <materialDesign:Card Padding="32" Width="750" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
 
