@@ -36,7 +36,6 @@ namespace Prepper_Manager
             TipOfTheDay.startTipOfTheDayChanger();
         }
 
-
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var dependencyObject = Mouse.Captured as DependencyObject;

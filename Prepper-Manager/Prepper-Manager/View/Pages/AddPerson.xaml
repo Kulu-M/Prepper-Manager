@@ -13,8 +13,7 @@
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="760" d:DesignWidth="1000" Loaded="UserControl_Loaded"
-      >
+      d:DesignHeight="760" d:DesignWidth="1000" Loaded="UserControl_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,16 +28,15 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-
         <StackPanel x:Name="sp_detailsSP" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
 
-            <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Firstname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" >
+            <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Firstname" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Width="200" >
                 <TextBox.Text>
                     <Binding ElementName="lb_personList" Path="SelectedItem.firstName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
 
-            <TextBox materialDesign:HintAssist.Hint="Lastname" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0">
+            <TextBox materialDesign:HintAssist.Hint="Lastname" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0">
                 <TextBox.Text>
                     <Binding ElementName="lb_personList" Path="SelectedItem.lastName" UpdateSourceTrigger="PropertyChanged"/>
                 </TextBox.Text>
@@ -53,7 +51,7 @@
                 </ComboBoxItem>
             </ComboBox>
 
-            <TextBox materialDesign:HintAssist.Hint="Calorie intake" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0" Text="2500"/>
+            <TextBox materialDesign:HintAssist.Hint="Calorie intake" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0" Text="2500"/>
 
         </StackPanel>
 
@@ -78,31 +76,21 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-
                 <Button Grid.Row="2" Grid.Column="0"  Width="50" Height="40" HorizontalAlignment="Left" Margin="10,0,00,0" >
                     <materialDesign:PackIcon Kind="AccountMinus" />
-                    </Button>
+                </Button>
 
                 <Button Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Button_Click">
-                        <materialDesign:PackIcon Kind="AccountPlus" />
-                    </Button>
-               
-
-
+                    <materialDesign:PackIcon Kind="AccountPlus" />
+                </Button>
 
             </Grid>
         </materialDesign:Card>
-
-
-
-
         <Button Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    Style="{DynamicResource MaterialDesignRaisedDarkButton}"
     Width="100"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
             Save
         </Button>
-
-
     </Grid>
 </UserControl>

@@ -12,14 +12,14 @@ namespace Prepper_Manager.Controller.Persistence
     {
         public static void SaveToJson()
         {
-            //try
-            //{
-            //    File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"), JsonConvert.SerializeObject(App._vm));
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //}
+            try
+            {
+                File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"), JsonConvert.SerializeObject(App._vmData));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }

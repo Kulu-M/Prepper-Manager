@@ -21,14 +21,14 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            _vmData = DummyDataCreation.createDummyViewModel();
+            Load.LoadFromJson();
 
-            //Load VM
+            //_vmData = DummyDataCreation.createDummyViewModel();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            //SAVE VM
+            Save.SaveToJson();
         }
     }
 }
