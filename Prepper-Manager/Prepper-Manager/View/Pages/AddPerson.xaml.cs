@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 
 namespace Prepper_Manager.View.Pages
 {
@@ -30,16 +31,36 @@ namespace Prepper_Manager.View.Pages
         {
             lb_personList.ItemsSource = App._vmData.personList;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var person = new AddPerson();
-
-        }
-
+      
         private void lb_personList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        #region Add, Delete Persons
+        
+        private void B_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (lb_personList.SelectedItem as Person == null) return;
+            var personToRemove = lb_personList.SelectedItem as Person;
+            App._vmData.personList.Remove(lb_personList.SelectedItem as Person);
+
+            var messageQueue = sb_delelteSnack.MessageQueue;
+            var message = "Deleted " + personToRemove.firstName + " " + personToRemove.lastName + ".";
+
+            //the message queue can be called from any thread
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
+        }
+
+        private void DialogHost_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
+        {
+            var p = new Person();
+            p.firstName = tb_newNameTextBox.Text.Trim();
+            App._vmData.personList.Add(p);
+            var selected = App._vmData.personList.Where(x => x.firstName == p.firstName);
+            lb_personList.SelectedItem = selected;
+        }
+
+        #endregion Add, Delete Persons       
     }
 }

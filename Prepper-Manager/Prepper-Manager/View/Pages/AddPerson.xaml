@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Prepper_Manager.View.Pages"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:showMeTheXaml="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight="Regular"
       TextElement.FontSize="13"
@@ -13,7 +15,7 @@
       Background="{DynamicResource MaterialDesignPaper}"
       FontFamily="{DynamicResource MaterialDesignFont}"
       mc:Ignorable="d" 
-      d:DesignHeight="760" d:DesignWidth="1000" Loaded="UserControl_Loaded">
+      d:DesignHeight="720" d:DesignWidth="1000" Loaded="UserControl_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -76,13 +78,72 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <Button Grid.Row="2" Grid.Column="0"  Width="50" Height="40" HorizontalAlignment="Left" Margin="10,0,00,0" >
+
+                <materialDesign:DialogHost Grid.Row="2" Grid.Column="0"  Width="50" Height="40" HorizontalAlignment="Left" Margin="10,0,00,0">
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="16">
+                            <TextBlock>Are you sure?</TextBlock>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                <Button x:Name="b_acceptDeletePerson" Style="{DynamicResource MaterialDesignFlatButton}"
+                                        IsDefault="True"
+                                        Margin="0 8 8 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand" Click="B_acceptDeletePerson_OnClick">
+                                    <Button.CommandParameter>
+                                        <system:Boolean>True</system:Boolean>
+                                    </Button.CommandParameter>
+                                    ACCEPT
+                                </Button>
+                                <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 8 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    <Button.CommandParameter>
+                                        <system:Boolean>False</system:Boolean>
+                                    </Button.CommandParameter>
+                                    CANCEL
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+                    <Button x:Name="b_deletePerson" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                     <materialDesign:PackIcon Kind="AccountMinus" />
                 </Button>
+                </materialDesign:DialogHost>
 
-                <Button Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Button_Click">
-                    <materialDesign:PackIcon Kind="AccountPlus" />
-                </Button>
+
+                <materialDesign:DialogHost VerticalAlignment="Center" DialogClosing="DialogHost_OnDialogClosing" Margin="0,0,10,0"  Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right">
+                    <materialDesign:DialogHost.DialogContent>
+                        <StackPanel Margin="16">
+                            <TextBlock>Insert First Name</TextBlock>
+                            <TextBox Margin="0 8 0 0" HorizontalAlignment="Stretch" x:Name="tb_newNameTextBox" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                                <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 8 8 0"
+                                    Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    <Button.CommandParameter>
+                                        <system:Boolean>True</system:Boolean>
+                                    </Button.CommandParameter>
+                                    ACCEPT
+                                </Button>
+                                <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                    IsCancel="True"
+                                    Margin="0 8 8 0"
+                                    Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    <Button.CommandParameter>
+                                        <system:Boolean>False</system:Boolean>
+                                    </Button.CommandParameter>
+                                    CANCEL
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </materialDesign:DialogHost.DialogContent>
+
+                    <Button x:Name="b_addPerson" Width="50" Height="40" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                        <materialDesign:PackIcon Kind="AccountPlus" />
+                    </Button>
+
+                </materialDesign:DialogHost>
 
             </Grid>
         </materialDesign:Card>
@@ -92,5 +153,11 @@
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
             Save
         </Button>
+
+        <showMeTheXaml:XamlDisplay Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Key="snackbar" VerticalContentAlignment="Bottom" HorizontalAlignment="Center">
+            <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
+                                     x:Name="sb_delelteSnack" />
+        </showMeTheXaml:XamlDisplay>
     </Grid>
 </UserControl>
+

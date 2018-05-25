@@ -21,10 +21,8 @@ namespace Prepper_Manager.Controller.TipOfTheDay
             "Tip of the Day: Go insde when it rains or you will get wet about 76% of times."
         };
 
-        public static int counterList = 0;
-
-
-
+        public static int counterList;
+        
         public static void startTipOfTheDayChanger()
         {
             Thread.CurrentThread.IsBackground = true;
