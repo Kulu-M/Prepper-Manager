@@ -44,7 +44,7 @@
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Resources/water.png" Height="200" Margin="5"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Water</TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding waterReservesHint}"/>
                 <Button x:Name="b_waterOverview" Width="60" Grid.Row="3" Click="b_waterOverview_Click">Edit</Button>
             </Grid>
         </materialDesign:Card>
@@ -61,7 +61,7 @@
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200" Margin="5"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Food</TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}"/>
                 <Button x:Name="b_foodOverview" Width="60" Grid.Row="3" Click="b_foodOverview_Click">Edit</Button>
             </Grid>
         </materialDesign:Card>

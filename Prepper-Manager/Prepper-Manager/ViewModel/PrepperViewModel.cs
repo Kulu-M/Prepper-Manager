@@ -13,6 +13,10 @@ namespace Prepper_Manager.ViewModel
 {
     public class PrepperViewModel : INotifyPropertyChanged
     {
+        public string waterReservesHint { get; set; }
+
+        public string foodReservesHint { get; set; }
+
         #region Constructor
 
         public PrepperViewModel()

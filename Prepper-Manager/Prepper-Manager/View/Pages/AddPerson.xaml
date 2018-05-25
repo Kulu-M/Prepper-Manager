@@ -40,11 +40,13 @@
 
             <TextBox materialDesign:HintAssist.Hint="Lastname" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Width="200" Margin="0,40,0,0">
                 <TextBox.Text>
-                    <Binding ElementName="lb_personList" Path="SelectedItem.lastName" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding ElementName="lb_personList" Path="SelectedItem.lastName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                 </TextBox.Text>
             </TextBox>
 
             <ComboBox materialDesign:HintAssist.Hint="Gender"  Margin="0,40,0,0" Width="200">
+                <ComboBox.SelectedItem><Binding ElementName="lb_personList" Path="SelectedItem.gender" Mode="TwoWay"/>
+                </ComboBox.SelectedItem>
                 <ComboBoxItem>
                     Male
                 </ComboBoxItem>

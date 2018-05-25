@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Prepper_Manager"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mainWindow="clr-namespace:Prepper_Manager.ViewModel.MainWindow"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -20,9 +21,9 @@
 
 
     <!--region Sidebar-->
-    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
-        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
-            <materialDesign:DrawerHost.LeftDrawerContent >
+    <wpf:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <wpf:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
+            <wpf:DrawerHost.LeftDrawerContent >
                 <DockPanel MinWidth="212">
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                                   DockPanel.Dock="Top"
@@ -39,7 +40,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </DockPanel>
-            </materialDesign:DrawerHost.LeftDrawerContent>
+            </wpf:DrawerHost.LeftDrawerContent>
 
             <DockPanel>
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -56,6 +57,6 @@
                 
                 <!--endregion Content-->
             </DockPanel>
-        </materialDesign:DrawerHost>
-    </materialDesign:DialogHost>
+        </wpf:DrawerHost>
+    </wpf:DialogHost>
 </Window>

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Prepper_Manager.Controller.Calculation;
 using Prepper_Manager.Controller.Persistence;
 using Prepper_Manager.ViewModel;
 
@@ -22,8 +23,10 @@ namespace Prepper_Manager
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             Load.LoadFromJson();
-
             //_vmData = DummyDataCreation.createDummyViewModel();
+
+            FoodCalculation.calculateFood();
+            WaterCalculation.calculateWater();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
