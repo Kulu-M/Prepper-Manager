@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prepper_Manager"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mainWindow="clr-namespace:Prepper_Manager.ViewModel.MainWindow"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -13,66 +14,48 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Prepper Manager" Height="800" Width="1000">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        Title="Prepper Manager" Height="830" Width="1000"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
-        <materialDesign:DrawerHost HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" >
-            <materialDesign:DrawerHost.LeftDrawerContent>
-                <StackPanel Margin="16">
-                    <TextBlock Margin="4" HorizontalAlignment="Center">LEFT FIELD</TextBlock>
-                    <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        CommandParameter="{x:Static Dock.Left}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                        CLOSE THIS
-                    </Button>
-                    <Button Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
-                        Margin="4" HorizontalAlignment="Center"
-                        Style="{DynamicResource MaterialDesignFlatButton}">
-                        CLOSE ALL
-                    </Button>
-                </StackPanel>
+
+
+    <!--region Sidebar-->
+    <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
+            <materialDesign:DrawerHost.LeftDrawerContent >
+                <DockPanel MinWidth="212">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                                  DockPanel.Dock="Top"
+                                  HorizontalAlignment="Right" Margin="16"
+                                  IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                    <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                        
+                             ItemsSource="{Binding MainWindowPages}"
+                             SelectedItem="{Binding SelectedItem}"
+                             PreviewMouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="mainWindow:MainWindowPage">
+                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
 
-
-            <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" CommandParameter="{x:Static Dock.Left}" x:Name="MenuToggleButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43">
-                <materialDesign:PackIcon Kind="ArrowLeft" Height="33" Width="25">
-                </materialDesign:PackIcon >
-            </Button>
+            <DockPanel>
+                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                        x:Name="MenuToggleButton"/>
 
 
+                <!--endregion Sidebar-->
 
+                <!--region Content-->
+
+                <ScrollViewer>
+                    <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
+                </ScrollViewer>
+                
+                <!--endregion Content-->
+            </DockPanel>
         </materialDesign:DrawerHost>
-
-        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
-            <materialDesign:Card Padding="32" Width="150">
-                <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Water</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
-            <materialDesign:Card Padding="32" Width="150">
-                <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Food</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
-            <materialDesign:Card Padding="32" Width="150">
-                <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">People</TextBlock>
-            </materialDesign:Card>
-        </StackPanel>
-    </Grid>
+    </materialDesign:DialogHost>
 </Window>
