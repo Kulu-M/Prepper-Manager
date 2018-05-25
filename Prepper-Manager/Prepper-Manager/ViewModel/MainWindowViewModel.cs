@@ -37,9 +37,10 @@ namespace Prepper_Manager.ViewModel
             {
                 new MainWindowPage("Home", new Home()),
                 new MainWindowPage("Test", new Test()),
-                new MainWindowPage("Add Person", new AddPerson())
+                new MainWindowPage("Add Person", new AddPerson()),
+                new MainWindowPage("Person", new PersonPage())
             };
-            SelectedItem = MainWindowPages[0];
+            SelectedItem = MainWindowPages[3];
         }
 
         #region INotify

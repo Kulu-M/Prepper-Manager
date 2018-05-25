@@ -82,7 +82,7 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card Padding="32" Width="750" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
+        <materialDesign:Card Padding="32" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
 
