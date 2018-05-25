@@ -50,11 +50,9 @@
                 <!--endregion Sidebar-->
 
                 <!--region Content-->
-
                 <ScrollViewer>
                     <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
                 </ScrollViewer>
-                
                 <!--endregion Content-->
             </DockPanel>
         </wpf:DrawerHost>

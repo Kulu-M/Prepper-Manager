@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Prepper_Manager.View.Pages"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:showMeTheXaml="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     TextElement.FontWeight="Regular"
     TextElement.FontSize="13"
@@ -25,88 +26,102 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
-</ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
+    <Grid>
+        <WrapPanel x:Name="wp_peopleWrapper" Margin="50">
 
-    <WrapPanel x:Name="wp_peopleWrapper">
-
-        <ItemsControl x:Name="tStack" Width="50" Height="50">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding firstName}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-
-        <showMeTheXaml:XamlDisplay Key="cards_9" Margin="4 4 0 0" VerticalContentAlignment="Top">
-            <materialDesign:Flipper Style="{DynamicResource MaterialDesignCardFlipper}">
-                <materialDesign:Flipper.FrontContent>
-
-                    <Grid Height="256" Width="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="160" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
-                            <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128"
+            <ItemsControl x:Name="ic_mainItemControl">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <showMeTheXaml:XamlDisplay Key="cards_9" Margin="4 4 0 0" VerticalContentAlignment="Top">
+                            <materialDesign:Flipper Style="{DynamicResource MaterialDesignCardFlipper}">
+                                <materialDesign:Flipper.FrontContent>
+                                    <Grid Height="256" Width="200">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                                            <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128"
                                                      VerticalAlignment="Center" HorizontalAlignment="Center" />
-                        </materialDesign:ColorZone>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock>James Willock</TextBlock>
-                            <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        </materialDesign:ColorZone>
+                                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding firstName}"/>
+                                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Command="{x:Static materialDesign:Flipper.FlipCommand}"
                                     Margin="0 4 0 0"
                             >EDIT</Button>
-                        </StackPanel>
-                    </Grid>
-
-                </materialDesign:Flipper.FrontContent>
-                <materialDesign:Flipper.BackContent>
-                    <Grid Height="256" Width="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="Accent" Padding="6">
-                            <StackPanel Orientation="Horizontal">
-                                <Button Style="{DynamicResource MaterialDesignToolForegroundButton}"
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:Flipper.FrontContent>
+                                <materialDesign:Flipper.BackContent>
+                                    <Grid Height="256" Width="200">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Style="{DynamicResource MaterialDesignToolForegroundButton}"
                                     Command="{x:Static materialDesign:Flipper.FlipCommand}"
                                     HorizontalAlignment="Left">
-                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
-                                </Button>
-                                <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">EDIT USER</TextBlock>
-                            </StackPanel>
-                        </materialDesign:ColorZone>
-                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                                                </Button>
+                                                <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">EDIT USER</TextBlock>
+                                            </StackPanel>
+                                        </materialDesign:ColorZone>
+                                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
                           Width="172">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBox materialDesign:HintAssist.Hint="First name" materialDesign:HintAssist.IsFloating="True"
-                                 Margin="0 12 0 0">James</TextBox>
-                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Last name" materialDesign:HintAssist.IsFloating="True"
-                                 Margin="0 12 0 0">Willock</TextBox>
-                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center">Email Contact</TextBlock>
-                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
-                            </StackPanel>
-                            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center">Telephone Contact</TextBlock>
-                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
-                            </StackPanel>
-                        </Grid>
-                    </Grid>
-                </materialDesign:Flipper.BackContent>
-            </materialDesign:Flipper>
-        </showMeTheXaml:XamlDisplay>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <TextBox materialDesign:HintAssist.Hint="First name" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0" Text="{Binding firstName}"/>
+                                            <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Last name" materialDesign:HintAssist.IsFloating="True"
+                                 Margin="0 12 0 0" Text="{Binding lastName}"/>
+                                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                                                <TextBlock VerticalAlignment="Center">Email Contact</TextBlock>
+                                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                                                <TextBlock VerticalAlignment="Center">Telephone Contact</TextBlock>
+                                                <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </materialDesign:Flipper.BackContent>
+                            </materialDesign:Flipper>
+                        </showMeTheXaml:XamlDisplay>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-    </WrapPanel>
+        </WrapPanel>
 
- 
+
+
+        <Button x:Name="b_addPerson" Style="{DynamicResource MaterialDesignFloatingActionButton}"
+                                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                     Margin="32" Click="b_addPerson_Click">
+            <materialDesign:PackIcon
+                Kind="AccountPlus"
+                Height="24"
+                Width="24" />
+            </Button>
+
+       
+
+    </Grid>
 </UserControl>
 
