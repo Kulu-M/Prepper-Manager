@@ -86,6 +86,8 @@
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
 
+        <Button x:Name="b_sampleData" Grid.Row="4" Grid.Column="1" Click="b_sampleData_Click">Restore Sample Data</Button>
+
 
     </Grid>
 </UserControl>

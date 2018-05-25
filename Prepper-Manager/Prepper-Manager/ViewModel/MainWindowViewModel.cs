@@ -33,6 +33,7 @@ namespace Prepper_Manager.ViewModel
 
         public MainWindowViewModel()
         {
+            //Defines the order of the pages in the sidebar
             MainWindowPages = new[]
             {
                 new MainWindowPage("Home", new Home()),
@@ -40,7 +41,8 @@ namespace Prepper_Manager.ViewModel
                 new MainWindowPage("Add Person", new AddPerson()),
                 new MainWindowPage("Person", new PersonPage())
             };
-            SelectedItem = MainWindowPages[3];
+            //Defines the starting page
+            SelectedItem = MainWindowPages[0];
         }
 
         #region INotify

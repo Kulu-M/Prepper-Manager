@@ -10,10 +10,10 @@ namespace Prepper_Manager.Controller.Persistence
 {
     public class DummyDataCreation
     {
-        public static PrepperViewModel createDummyViewModel()
+        public static void createDummyPersons()
         {
-            PrepperViewModel _vm = new PrepperViewModel();
-            _vm.personList = new System.Collections.ObjectModel.ObservableCollection<Model.Person>();
+            App._vmData.personList.Clear();
+            App._vmData.personList = new System.Collections.ObjectModel.ObservableCollection<Person>();
 
             var p1 = new Person();
             p1.firstName = "Mohammed";
@@ -27,11 +27,9 @@ namespace Prepper_Manager.Controller.Persistence
             p3.firstName = "Gerd";
             p3.lastName = "Möckel";
 
-            _vm.personList.Add(p1);
-            _vm.personList.Add(p2);
-            _vm.personList.Add(p3);
-
-            return _vm;
+            App._vmData.personList.Add(p1);
+            App._vmData.personList.Add(p2);
+            App._vmData.personList.Add(p3);
         }
     }
 }
