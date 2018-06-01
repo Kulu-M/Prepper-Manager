@@ -17,9 +17,16 @@ namespace Prepper_Manager.ViewModel
 
         public string foodReservesHint { get; set; }
 
-        #region Constructor
+        public List<string> searchResults;
+
+        #region Constructor / Destructor
 
         public PrepperViewModel()
+        {
+
+        }
+
+        ~PrepperViewModel()
         {
 
         }
