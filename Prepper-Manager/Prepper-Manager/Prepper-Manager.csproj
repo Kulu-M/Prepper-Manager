@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\API\NutritionixAPIKey_Default.cs" />
+    <Compile Include="Controller\API\NutritionixAPIKey.cs" />
     <Compile Include="Controller\API\RequestFoodData.cs" />
     <Compile Include="Controller\Calculation\FoodCalculation.cs" />
     <Compile Include="Controller\Calculation\WaterCalculation.cs" />

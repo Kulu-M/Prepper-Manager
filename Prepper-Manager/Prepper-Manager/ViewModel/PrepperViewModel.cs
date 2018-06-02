@@ -6,8 +6,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Prepper_Manager.Annotations;
 using Prepper_Manager.Model;
+using RestSharp;
 
 namespace Prepper_Manager.ViewModel
 {
@@ -18,6 +20,10 @@ namespace Prepper_Manager.ViewModel
         public string foodReservesHint { get; set; }
 
         public List<string> searchResults;
+
+        public List<JToken> searchResultsExperimental;
+
+        public IRestResponse searchResultsExperimental2;
 
         #region Constructor / Destructor
 
@@ -64,3 +70,4 @@ namespace Prepper_Manager.ViewModel
         #endregion INotify
     }
 }
+
