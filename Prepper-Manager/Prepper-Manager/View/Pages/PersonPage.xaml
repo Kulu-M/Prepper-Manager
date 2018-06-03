@@ -31,8 +31,27 @@
     </UserControl.Resources>
 
     <Grid>
-        <WrapPanel x:Name="wp_peopleWrapper">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
+            
+            Your household consists of
+
+        </TextBlock>
+
+        <WrapPanel x:Name="wp_peopleWrapper" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" >
+            
             <ItemsControl x:Name="ic_mainItemControl">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -50,15 +69,17 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
-                                            <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128"
-                                                     VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                                            <Image Source="{Binding imagePath}"></Image>
+                                            
                                         </materialDesign:ColorZone>
                                         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                             <TextBlock Text="{Binding firstName}"/>
                                             <Button Style="{StaticResource MaterialDesignFlatButton}"
-                                    Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                    Margin="0 4 0 0"
-                            >EDIT</Button>
+                                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                                Margin="0 4 0 0">
+                                                EDIT
+                                            </Button>  
                                         </StackPanel>
                                     </Grid>
                                 </materialDesign:Flipper.FrontContent>
@@ -111,9 +132,8 @@
 
 
 
-        <Button x:Name="b_addPerson" Style="{DynamicResource MaterialDesignFloatingActionButton}"
-                                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                                     Margin="32" Click="b_addPerson_Click">
+        <Button Width="50" Height="50" Grid.Row="3" Grid.Column="2" x:Name="b_addPerson" Style="{DynamicResource MaterialDesignFloatingActionButton}"
+                                 VerticalAlignment="Bottom" HorizontalAlignment="Right"   Margin="0,0,20,20" Click="b_addPerson_Click">
             <materialDesign:PackIcon
                 Kind="AccountPlus"
                 Height="24"

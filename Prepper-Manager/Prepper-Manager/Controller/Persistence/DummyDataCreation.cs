@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,19 +22,25 @@ namespace Prepper_Manager.Controller.Persistence
             {
                 firstName = "Mohammed",
                 lastName = "Yass",
-                gender = "Male"
+                gender = "Male",
+                imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\yass.jpg"))
             };
-           
 
-            var p2 = new Person();
-            p2.firstName = "Babsi";
-            p2.lastName = "Sprick";
-            p2.gender = "Female";
+            var p2 = new Person
+            {
+                firstName = "Babsi",
+                lastName = "Sprick",
+                gender = "Female",
+                imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\sprick.jpg"))
+            };
 
-            var p3 = new Person();
-            p3.firstName = "Gerd";
-            p3.lastName = "Möckel";
-            p3.gender = "Male";
+            var p3 = new Person
+            {
+                firstName = "Gerd",
+                lastName = "Möckel",
+                gender = "Male",
+                imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\moeckel.jpg"))
+            };
 
             App._vmData.personList.Add(p1);
             App._vmData.personList.Add(p2);
@@ -56,7 +63,7 @@ namespace Prepper_Manager.Controller.Persistence
             f2.foodName = "Rice";
             f2.calories = 200;
             f2.location = "Kitchen";
-            
+
             App._vmData.foodList.Add(f1);
             App._vmData.foodList.Add(f2);
 
