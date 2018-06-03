@@ -80,6 +80,7 @@
     <Compile Include="Controller\Persistence\Load.cs" />
     <Compile Include="Controller\Persistence\Save.cs" />
     <Compile Include="Controller\TipOfTheDay\TipOfTheDay.cs" />
+    <Compile Include="Converters\ValueToVisibilityConverter.cs" />
     <Compile Include="GlobalSettings\GlobalSettings.cs" />
     <Compile Include="Model\Food.cs" />
     <Compile Include="Model\Person.cs" />
@@ -99,6 +100,9 @@
     </Compile>
     <Compile Include="View\Pages\PersonPage.xaml.cs">
       <DependentUpon>PersonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Water.xaml.cs">
+      <DependentUpon>Water.xaml</DependentUpon>
     </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PersonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Water.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

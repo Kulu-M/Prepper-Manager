@@ -41,7 +41,7 @@ namespace Prepper_Manager.View.Pages
         
         private void B_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
         {
-            if (lb_personList.SelectedItem as Person == null) return;
+            if (!(lb_personList.SelectedItem is Person)) return;
             var personToRemove = lb_personList.SelectedItem as Person;
             App._vmData.personList.Remove(lb_personList.SelectedItem as Person);
 

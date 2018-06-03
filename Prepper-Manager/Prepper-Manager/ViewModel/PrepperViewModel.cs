@@ -61,6 +61,8 @@ namespace Prepper_Manager.ViewModel
 
         public ObservableCollection<Food> foodList = new ObservableCollection<Food>();
 
+        public ObservableCollection<Water> waterList = new ObservableCollection<Water>();
+
         public string waterReservesHint { get; set; }
 
         public string foodReservesHint { get; set; }

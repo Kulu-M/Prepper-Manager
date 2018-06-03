@@ -32,8 +32,8 @@ namespace Prepper_Manager.View.Pages
         }
 
         private void b_waterOverview_Click(object sender, RoutedEventArgs e)
-        { 
-
+        {
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[4];
         }
 
         private void b_foodOverview_Click(object sender, RoutedEventArgs e)
@@ -50,6 +50,7 @@ namespace Prepper_Manager.View.Pages
         {
             DummyDataCreation.createDummyPersons();
             DummyDataCreation.createSampleFoodList();
+            DummyDataCreation.createSampleWaterList();
         }
     }
 }
