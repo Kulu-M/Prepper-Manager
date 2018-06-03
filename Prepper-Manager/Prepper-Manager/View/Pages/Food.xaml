@@ -68,7 +68,9 @@
             <Grid>
                 <ScrollViewer x:Name="sv_mainScrollView">
                     <StackPanel>
-                        <TextBlock Margin="0 24 0 0">Your food supplies</TextBlock>
+
+                        <TextBlock Margin="35,15,0,25" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
+            Your total food supplies</TextBlock>
 
                         <DataGrid x:Name="dg_foodItems" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" >
                             <DataGrid.Columns>

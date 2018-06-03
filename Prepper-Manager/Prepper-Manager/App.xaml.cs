@@ -26,27 +26,24 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
-
             //DEBUG
+            //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
             //Thread.Sleep(2000);
             //var x = App._vmData.searchResultsExperimental;
             //object testList = JsonConvert.DeserializeObject(x.ToString());
+            //~DEBUG
 
-            //var y = App._vmData.searchResultsExperimental3;
-
-           // JObjectToObjectMapper.mapJObjectToFood(null);
-
+            //Load Saved Data from User
             Load.LoadFromJson();
 
-            //_vmData = DummyDataCreation.createDummyViewModel();
-
+            //Initial Calculations based on stored values
             FoodCalculation.calculateFood();
             WaterCalculation.calculateWater();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+            //Save on Exit
             Save.SaveToJson();
         }
     }
