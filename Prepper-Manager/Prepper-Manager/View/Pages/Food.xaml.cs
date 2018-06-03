@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
+using Prepper_Manager.Controller.API;
 
 namespace Prepper_Manager.View.Pages
 {
@@ -28,6 +31,8 @@ namespace Prepper_Manager.View.Pages
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             dg_foodItems.ItemsSource = App._vmData.foodList;
+
+            lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
         }
 
         private void b_addFood(object sender, RoutedEventArgs e)
@@ -40,6 +45,20 @@ namespace Prepper_Manager.View.Pages
         {
             if (dg_foodItems.SelectedItem != null) return;
             App._vmData.foodList.Remove(dg_foodItems.SelectedItem as Model.Food);
+        }
+
+        private void DialogHost_AddFood_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
+        {
+            
+        }
+
+        private void tb_newFoodTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tb_newFoodTextBox.Text)) return;
+            
+            RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+
+            lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
         }
     }
 }

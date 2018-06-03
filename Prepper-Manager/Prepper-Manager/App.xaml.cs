@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Newtonsoft.Json;
 using Prepper_Manager.Controller.API;
 using Prepper_Manager.Controller.Calculation;
 using Prepper_Manager.Controller.Persistence;
+using Prepper_Manager.Model;
 using Prepper_Manager.ViewModel;
 
 namespace Prepper_Manager
@@ -24,11 +26,16 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
+            //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
 
             //DEBUG
-            //Thread.Sleep(5000);
+            //Thread.Sleep(2000);
             //var x = App._vmData.searchResultsExperimental;
+            //object testList = JsonConvert.DeserializeObject(x.ToString());
+
+            //var y = App._vmData.searchResultsExperimental3;
+
+           // JObjectToObjectMapper.mapJObjectToFood(null);
 
             Load.LoadFromJson();
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Prepper_Manager.Model;
 using RestSharp;
 
 namespace Prepper_Manager.Controller.API
@@ -36,7 +37,7 @@ namespace Prepper_Manager.Controller.API
             {
                 if (r.ResponseStatus == ResponseStatus.Completed)
                 {
-                    App._vmData.searchResults = JObject.Parse(r.Content)["common"].Select(p => p["food_name"].Value<string>()).ToList();
+                    App._vmData.apiSearchResults = JObject.Parse(r.Content)["common"].Select(p => p["food_name"].Value<string>()).ToList();
                 }
             });
         }
@@ -65,6 +66,16 @@ namespace Prepper_Manager.Controller.API
                 if (r.ResponseStatus == ResponseStatus.Completed)
                 {
                     App._vmData.searchResultsExperimental = JObject.Parse(r.Content)["foods"].ToList();
+
+                    //var y = r.Content;
+
+                    App._vmData.searchResultsExperimental3 = JsonConvert.DeserializeObject<object>(r.Content);
+
+                    //foreach (var jObject in JsonConvert.DeserializeObject(r.Content))
+                    //{
+                    //    App._vmData.searchResultsExperimental2.Add(JObjectToObjectMapper.mapJObjectToFood(jObject));
+                    //}
+                   
                 }
             });
 

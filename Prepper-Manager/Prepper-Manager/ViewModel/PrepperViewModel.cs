@@ -25,6 +25,7 @@ namespace Prepper_Manager.ViewModel
             foodList.CollectionChanged += FoodListOnCollectionChanged;
         }
 
+        // https://msdn.microsoft.com/en-us/library/ms653375.aspx?f=255&MSPPError=-2147217396
         private void FoodListOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Remove)
@@ -57,7 +58,6 @@ namespace Prepper_Manager.ViewModel
 
         #endregion Constructor
 
-
         public ObservableCollection<Food> foodList = new ObservableCollection<Food>();
 
         public string waterReservesHint { get; set; }
@@ -65,11 +65,13 @@ namespace Prepper_Manager.ViewModel
         public string foodReservesHint { get; set; }
 
         //Random TODO cleanup
-        public List<string> searchResults;
+        public List<string> apiSearchResults { get; set; }
 
         public List<JToken> searchResultsExperimental;
 
-        public IRestResponse searchResultsExperimental2;
+        public List<Food> searchResultsExperimental2;
+
+        public object searchResultsExperimental3;
         //Random ~
 
         #region People
