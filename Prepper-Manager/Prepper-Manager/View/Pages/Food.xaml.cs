@@ -43,7 +43,11 @@ namespace Prepper_Manager.View.Pages
 
         private void b_removeFood(object sender, RoutedEventArgs e)
         {
-            if (dg_foodItems.SelectedItem != null) return;
+            if (dg_foodItems.SelectedItem == null)
+            {
+                MessageBox.Show("Select an item from you food supplies.");
+                return;
+            }
             App._vmData.foodList.Remove(dg_foodItems.SelectedItem as Model.Food);
         }
 
@@ -54,7 +58,11 @@ namespace Prepper_Manager.View.Pages
 
         private void tb_newFoodTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tb_newFoodTextBox.Text)) return;
+            if (string.IsNullOrWhiteSpace(tb_newFoodTextBox.Text))
+            {
+                lb_searchResults.ItemsSource = null;
+                return;
+            }
             
             RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
 

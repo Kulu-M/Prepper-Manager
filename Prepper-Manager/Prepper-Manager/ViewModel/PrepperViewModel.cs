@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prepper_Manager.Annotations;
 using Prepper_Manager.Controller.Calculation;
@@ -65,6 +66,8 @@ namespace Prepper_Manager.ViewModel
         public string foodReservesHint { get; set; }
 
         //Random TODO cleanup
+
+        [JsonIgnore]
         public List<string> apiSearchResults { get; set; }
 
         public List<JToken> searchResultsExperimental;
