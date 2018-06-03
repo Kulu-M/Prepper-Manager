@@ -10,7 +10,31 @@ namespace Prepper_Manager.Controller.Calculation
     {
         public static void calculateFood()
         {
-            App._vmData.foodReservesHint = "You have 12 days of food.";
+            decimal daysOfFoodSupplies = 0;
+            decimal totalCaloriesStored = 0;
+            decimal dailyCalorieConsumption = 0;
+
+            foreach (var food in App._vmData.foodList)
+            {
+                totalCaloriesStored += food.calories;
+            }
+
+            foreach (var person in App._vmData.personList)
+            {
+                dailyCalorieConsumption += person.calorieIntake;
+            }
+
+            try
+            {
+                daysOfFoodSupplies = totalCaloriesStored / dailyCalorieConsumption;
+                App._vmData.foodReservesHint = "You have " + daysOfFoodSupplies + " days of food.";
+            }
+            catch (DivideByZeroException)
+            {
+                App._vmData.foodReservesHint = "You have no supplies at all.";
+            }
+
+            
         }
     }
 }

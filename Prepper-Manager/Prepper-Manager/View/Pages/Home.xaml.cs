@@ -38,7 +38,7 @@ namespace Prepper_Manager.View.Pages
 
         private void b_foodOverview_Click(object sender, RoutedEventArgs e)
         {
-            
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
         }
 
         private void b_peopleOverview_Click(object sender, RoutedEventArgs e)
@@ -49,6 +49,7 @@ namespace Prepper_Manager.View.Pages
         private void b_sampleData_Click(object sender, RoutedEventArgs e)
         {
             DummyDataCreation.createDummyPersons();
+            DummyDataCreation.createSampleFoodList();
         }
     }
 }

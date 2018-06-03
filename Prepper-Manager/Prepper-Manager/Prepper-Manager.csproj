@@ -79,6 +79,7 @@
     <Compile Include="Controller\Persistence\Load.cs" />
     <Compile Include="Controller\Persistence\Save.cs" />
     <Compile Include="Controller\TipOfTheDay\TipOfTheDay.cs" />
+    <Compile Include="GlobalSettings\GlobalSettings.cs" />
     <Compile Include="Model\Food.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Water.cs" />

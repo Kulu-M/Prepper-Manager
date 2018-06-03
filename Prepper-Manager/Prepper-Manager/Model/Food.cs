@@ -20,5 +20,6 @@ namespace Prepper_Manager.Model
         public string itemName { get; set; }
         public string brandName { get; set; }
         public int calories { get; set; }
+        public string location { get; set; }
     }
 }

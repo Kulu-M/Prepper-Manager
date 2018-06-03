@@ -15,15 +15,19 @@ namespace Prepper_Manager.ViewModel
 {
     public class PrepperViewModel : INotifyPropertyChanged
     {
+        public ObservableCollection<Food> foodList = new ObservableCollection<Food>();
+
         public string waterReservesHint { get; set; }
 
         public string foodReservesHint { get; set; }
 
+        //Random TODO cleanup
         public List<string> searchResults;
 
         public List<JToken> searchResultsExperimental;
 
         public IRestResponse searchResultsExperimental2;
+        //Random ~
 
         #region Constructor / Destructor
 
@@ -44,7 +48,7 @@ namespace Prepper_Manager.ViewModel
         public ObservableCollection<Person> personList = new ObservableCollection<Person>();
 
         #endregion People
-        
+
         #region Tip of the Day
 
         private string _tipOfTheDay;
@@ -52,7 +56,7 @@ namespace Prepper_Manager.ViewModel
         public string tipOfTheDay
         {
             get { return _tipOfTheDay; }
-            set { _tipOfTheDay = value; OnPropertyChanged("tipOfTheDay");}
+            set { _tipOfTheDay = value; OnPropertyChanged("tipOfTheDay"); }
         }
 
         #endregion Tip of the Day

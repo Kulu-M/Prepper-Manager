@@ -15,10 +15,36 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             d:DesignHeight="720" d:DesignWidth="1000"
+             d:DesignHeight="720" d:DesignWidth="1000" Loaded="UserControl_Loaded"
              >
 
     <UserControl>
 
+        <ScrollViewer x:Name="sv_mainScrollView">
+            <StackPanel>
+                <TextBlock Margin="0 24 0 0">Your food supplies</TextBlock>
+
+                <DataGrid x:Name="dg_foodItems" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" >
+                    <DataGrid.Columns>
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding foodName}"
+                         Header="Name" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding servingUnit}"
+                                                                       Header="Unit" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding itemName}"
+                                                                       Header="Item Name" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding calories}"
+                                                                       Header="Calories" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+                        <materialDesign:MaterialDataGridTextColumn Binding="{Binding location}"
+                                                                       Header="Location" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+        </ScrollViewer>
     </UserControl>
 </UserControl>
+

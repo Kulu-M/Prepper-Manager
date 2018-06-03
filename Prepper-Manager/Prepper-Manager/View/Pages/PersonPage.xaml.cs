@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using Prepper_Manager.Controller.Calculation;
 using Prepper_Manager.Model;
 
 namespace Prepper_Manager.View.Pages
@@ -36,6 +37,7 @@ namespace Prepper_Manager.View.Pages
             var p = new Person();
             p.firstName = "New Person";
             App._vmData.personList.Add(p);
+            FoodCalculation.calculateFood();
         }
     }
 }

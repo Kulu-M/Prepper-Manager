@@ -24,5 +24,12 @@ namespace Prepper_Manager.View.Pages
         {
             InitializeComponent();
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var x = App._vmData.foodList;
+            //dg_foodItems. = App._vmData;
+            dg_foodItems.ItemsSource = App._vmData.foodList;
+        }
     }
 }
