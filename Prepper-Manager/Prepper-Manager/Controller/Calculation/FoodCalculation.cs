@@ -26,15 +26,20 @@ namespace Prepper_Manager.Controller.Calculation
 
             try
             {
-                daysOfFoodSupplies = totalCaloriesStored / dailyCalorieConsumption;
-                App._vmData.foodReservesHint = "You have " + daysOfFoodSupplies + " days of food.";
+                daysOfFoodSupplies = Decimal.Round(totalCaloriesStored / dailyCalorieConsumption);
+                if (daysOfFoodSupplies <= 1)
+                {
+                    App._vmData.foodReservesHint = "Your supplies won't last a day!";
+                }
+                else
+                {
+                    App._vmData.foodReservesHint = "You have " + daysOfFoodSupplies + " days of food.";
+                }
             }
             catch (DivideByZeroException)
             {
                 App._vmData.foodReservesHint = "You have no supplies at all.";
             }
-
-            
         }
     }
 }

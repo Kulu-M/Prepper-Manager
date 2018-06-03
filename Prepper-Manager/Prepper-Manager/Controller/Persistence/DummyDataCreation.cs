@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prepper_Manager.Controller.Calculation;
 using Prepper_Manager.Model;
 using Prepper_Manager.ViewModel;
 
@@ -37,6 +38,8 @@ namespace Prepper_Manager.Controller.Persistence
             App._vmData.personList.Add(p1);
             App._vmData.personList.Add(p2);
             App._vmData.personList.Add(p3);
+
+            FoodCalculation.calculateFood();
         }
 
         public static void createSampleFoodList()
@@ -56,6 +59,8 @@ namespace Prepper_Manager.Controller.Persistence
             
             App._vmData.foodList.Add(f1);
             App._vmData.foodList.Add(f2);
+
+            FoodCalculation.calculateFood();
         }
     }
 }
