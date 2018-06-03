@@ -20,9 +20,10 @@
 
 
 
+
     <!--region Sidebar-->
     <wpf:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
-        <wpf:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" HorizontalAlignment="Left" Grid.ColumnSpan="10" Grid.RowSpan="10" VerticalAlignment="Top" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="800" Width="1000" SnapsToDevicePixels="True" >
+        <wpf:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}">
             <wpf:DrawerHost.LeftDrawerContent >
                 <DockPanel MinWidth="212">
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
@@ -50,11 +51,15 @@
                 <!--endregion Sidebar-->
 
                 <!--region Content-->
+
                 <ScrollViewer>
-                    <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
+                    <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
                 </ScrollViewer>
+
                 <!--endregion Content-->
             </DockPanel>
         </wpf:DrawerHost>
     </wpf:DialogHost>
+
+
 </Window>

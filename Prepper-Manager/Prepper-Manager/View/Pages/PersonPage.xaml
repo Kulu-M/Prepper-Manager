@@ -31,7 +31,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <WrapPanel x:Name="wp_peopleWrapper" Margin="50">
+        <WrapPanel x:Name="wp_peopleWrapper">
 
             <ItemsControl x:Name="ic_mainItemControl">
                 <ItemsControl.ItemsPanel>
