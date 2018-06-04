@@ -28,7 +28,7 @@ namespace Prepper_Manager.Controller.Calculation
                                     GlobalSettings.GlobalSettings.waterConsumptionPerDayPerPersonInLiter));
 
 
-            App._vmData.waterReservesHint = "You have " + totalWaterLastingDays + " days of water.";
+            App._vmData.waterReservesHint = "You have " + totalWaterLastingDays + " days of water";
         }
     }
 }

@@ -64,7 +64,7 @@
                         </Button>
                     </StackPanel>
                     <Expander x:Name="exp_temporaryNutritionValuesExpander"
-                              HorizontalAlignment="Stretch" Margin="0,10,0,0" Visibility="Collapsed"
+                              HorizontalAlignment="Stretch" Margin="0,10,0,0" Visibility="Hidden" IsEnabled="True"
                               Header="Nutrition Values">
                         <StackPanel Orientation="Vertical"
                                     TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
@@ -87,6 +87,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
@@ -97,12 +98,12 @@
 
                 </TextBlock>
 
-                <materialDesign:Card Grid.Row="2" Grid.Column="1" materialDesign:ShadowAssist.ShadowDepth="Depth2">
+                <materialDesign:Card Grid.Row="3" Grid.Column="1" materialDesign:ShadowAssist.ShadowDepth="Depth2">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="50" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -119,79 +120,11 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-
-
-                        <materialDesign:DialogHost Grid.Row="2" Grid.Column="0"  Width="50" Height="40" HorizontalAlignment="Left" Margin="10,0,00,0">
-                            <materialDesign:DialogHost.DialogContent>
-                                <StackPanel Margin="16">
-                                    <TextBlock>Are you sure?</TextBlock>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                        <Button x:Name="b_acceptDeleteFood" Style="{DynamicResource MaterialDesignFlatButton}"
-                                        IsDefault="True"
-                                        Margin="0 8 8 0"
-                                        Command="materialDesign:DialogHost.CloseDialogCommand" Click="B_acceptDeleteFood_OnClick">
-                                            <Button.CommandParameter>
-                                                <system:Boolean>True</system:Boolean>
-                                            </Button.CommandParameter>
-                                            ACCEPT
-                                        </Button>
-                                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
-                                        IsCancel="True"
-                                        Margin="0 8 8 0"
-                                        Command="materialDesign:DialogHost.CloseDialogCommand">
-                                            <Button.CommandParameter>
-                                                <system:Boolean>False</system:Boolean>
-                                            </Button.CommandParameter>
-                                            CANCEL
-                                        </Button>
-                                    </StackPanel>
-                                </StackPanel>
-                            </materialDesign:DialogHost.DialogContent>
-                            <!--<Button x:Name="b_deleteFood" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
-                                <materialDesign:PackIcon Kind="FoodOff" />
-                            </Button>-->
-                        </materialDesign:DialogHost>
-
-
-                        <materialDesign:DialogHost VerticalAlignment="Center" DialogClosing="DialogHost_OnDialogClosing" Margin="0,0,10,0"  Grid.Row="2" Grid.Column="1" Width="50" Height="40" HorizontalAlignment="Right">
-                            <materialDesign:DialogHost.DialogContent>
-                                <StackPanel Margin="16">
-                                    <TextBlock>Insert Name</TextBlock>
-                                    <TextBox Margin="0 8 0 0" HorizontalAlignment="Stretch" x:Name="tb_newTextBox" />
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
-                                    IsDefault="True"
-                                    Margin="0 8 8 0"
-                                    Command="materialDesign:DialogHost.CloseDialogCommand">
-                                            <Button.CommandParameter>
-                                                <system:Boolean>True</system:Boolean>
-                                            </Button.CommandParameter>
-                                            ACCEPT
-                                        </Button>
-                                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
-                                    IsCancel="True"
-                                    Margin="0 8 8 0"
-                                    Command="materialDesign:DialogHost.CloseDialogCommand">
-                                            <Button.CommandParameter>
-                                                <system:Boolean>False</system:Boolean>
-                                            </Button.CommandParameter>
-                                            CANCEL
-                                        </Button>
-                                    </StackPanel>
-                                </StackPanel>
-                            </materialDesign:DialogHost.DialogContent>
-
-                            <!--<Button x:Name="b_addFood" Width="50" Height="40" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
-                                <materialDesign:PackIcon Kind="Food" />
-                            </Button>-->
-
-                        </materialDesign:DialogHost>
-
                     </Grid>
                 </materialDesign:Card>
 
 
-                <StackPanel x:Name="sp_detailsSP" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" Margin="50,0,15,0" IsEnabled="{Binding ElementName=lb_foodList, Path=SelectedItems.Count}" >
+                <StackPanel x:Name="sp_detailsSP" Grid.Row="3" Grid.Column="2" VerticalAlignment="Top" Margin="50,0,15,0" IsEnabled="{Binding ElementName=lb_foodList, Path=SelectedItems.Count}" >
 
                     <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  >
                         <TextBox.Text>
@@ -249,7 +182,7 @@
                 </showMeTheXaml:XamlDisplay>
 
 
-                <materialDesign:PopupBox Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}" Margin="0,0,30,30" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="3" Grid.RowSpan="1">
+                <materialDesign:PopupBox Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}" Margin="0,0,30,30" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="4" Grid.RowSpan="1">
                     <StackPanel>
                         <Button ToolTip="Add food ressource" Click="b_addFood" Background="LimeGreen" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
 

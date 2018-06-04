@@ -34,10 +34,19 @@ namespace Prepper_Manager.View.Pages
         }
         private void b_addPerson_Click(object sender, RoutedEventArgs e)
         {
-            var p = new Person();
-            p.firstName = "New Person";
+            var p = new Person {firstName = "New Person"};
             App._vmData.personList.Add(p);
             FoodCalculation.calculateFood();
+        }
+
+        private void b_deletePerson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void b_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO actually delete person
         }
     }
 }

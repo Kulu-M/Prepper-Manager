@@ -42,6 +42,7 @@ namespace Prepper_Manager
             //Initial Calculations based on stored values
             FoodCalculation.calculateFood();
             WaterCalculation.calculateWater();
+            PeopleCalculation.calculateNumberOfPeople();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

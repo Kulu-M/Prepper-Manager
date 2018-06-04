@@ -33,7 +33,7 @@ namespace Prepper_Manager.Controller.Calculation
                 }
                 else
                 {
-                    App._vmData.foodReservesHint = "You have " + daysOfFoodSupplies + " days of food.";
+                    App._vmData.foodReservesHint = "You have " + daysOfFoodSupplies + " days of food";
                 }
             }
             catch (DivideByZeroException)

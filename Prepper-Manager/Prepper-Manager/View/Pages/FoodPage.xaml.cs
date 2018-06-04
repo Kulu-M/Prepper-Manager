@@ -94,7 +94,7 @@ namespace Prepper_Manager.View.Pages
             {
                 "bigmac",
                 "pasta",
-                "SpareRibs"
+                "spareribs"
             };
 
             //Release:
@@ -106,6 +106,7 @@ namespace Prepper_Manager.View.Pages
         {
             tb_newFoodTextBox.Text = lb_searchResults.SelectedItem.ToString();
             exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
+            //exp_temporaryNutritionValuesExpander.IsEnabled = true;
 
             var temp = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
 

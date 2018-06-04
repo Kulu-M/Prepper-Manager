@@ -69,6 +69,8 @@ namespace Prepper_Manager.ViewModel
 
         public string foodReservesHint { get; set; }
 
+        public string peopleCountHint { get; set; }
+
         //Random TODO cleanup
 
         public List<JToken> searchResultsExperimental;
