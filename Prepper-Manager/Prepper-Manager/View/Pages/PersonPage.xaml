@@ -82,7 +82,7 @@
                                     </Grid>
                                 </materialDesign:Flipper.FrontContent>
                                 <materialDesign:Flipper.BackContent>
-                                    <Grid Height="256" Width="200">
+                                    <Grid Height="300" Width="200">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="*" />
@@ -139,14 +139,14 @@
                                             </StackPanel>
                                         </materialDesign:ColorZone>
                                         <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
-                          Width="172">
+                                            Width="172">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="25"/>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="25"/>
+                                                <RowDefinition Height="15"/>
 
 
                                             </Grid.RowDefinitions>
@@ -166,7 +166,8 @@
                                                 Maximum="3000"
                                                 Style="{DynamicResource MaterialDesignDiscreteSlider}"
                                                 ToolTip="MaterialDesignDiscreteSlider"
-                                                Value="{Binding calorieIntake}"/>
+                                                Value="{Binding calorieIntake}"
+                                                    Margin="0,0,0,20"/>
                                         </Grid>
                                     </Grid>
                                 </materialDesign:Flipper.BackContent>

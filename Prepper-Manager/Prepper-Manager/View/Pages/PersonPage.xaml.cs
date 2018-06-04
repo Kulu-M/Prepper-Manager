@@ -46,7 +46,14 @@ namespace Prepper_Manager.View.Pages
 
         private void b_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO actually delete person
+            try
+            {
+                App._vmData.personList.Remove(((((sender as Button).Parent as StackPanel).Parent as StackPanel).Parent as Card).DataContext as Person);
+            }
+            catch (Exception ex)
+            {
+                // ignored
+            }
         }
     }
 }
