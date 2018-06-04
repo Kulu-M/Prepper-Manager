@@ -93,12 +93,6 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PrepperViewModel.cs" />
-    <Compile Include="View\Pages\AddPerson.xaml.cs">
-      <DependentUpon>AddPerson.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Food.xaml.cs">
-      <DependentUpon>Food.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Pages\FoodPage.xaml.cs">
       <DependentUpon>FoodPage.xaml</DependentUpon>
     </Compile>
@@ -107,9 +101,6 @@
     </Compile>
     <Compile Include="View\Pages\PersonPage.xaml.cs">
       <DependentUpon>PersonPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Water.xaml.cs">
-      <DependentUpon>Water.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\WaterPage.xaml.cs">
       <DependentUpon>WaterPage.xaml</DependentUpon>
@@ -126,14 +117,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Pages\AddPerson.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Food.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Pages\FoodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,10 +126,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PersonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Water.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

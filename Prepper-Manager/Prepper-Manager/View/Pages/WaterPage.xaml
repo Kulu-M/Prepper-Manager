@@ -72,16 +72,16 @@
                          Header="Name" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
 
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding description, Mode=TwoWay}"
-                                                                       Header="Unit" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                                                       Header="Description" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
 
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding location, Mode=TwoWay}"
-                                                                       Header="Item Name" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                                                       Header="Location" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
 
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding liter, Mode=TwoWay}"
-                                                                       Header="Calories" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                                                       Header="Liters" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
 
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding count, Mode=TwoWay}"
-                                                                       Header="Location" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                                                                       Header="Count" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
 
 
                             </DataGrid.Columns>
@@ -96,10 +96,10 @@
                         <StackPanel>
                             <Button ToolTip="Add water ressource" Click="b_addWater" Background="LimeGreen" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
 
-                                <materialDesign:PackIcon Kind="Food"/>
+                                <materialDesign:PackIcon Kind="Water"/>
                             </Button>
                             <Button ToolTip="Remove water ressource" Click="b_removeWater" Background="Red">
-                                <materialDesign:PackIcon Kind="FoodOff" />
+                                <materialDesign:PackIcon Kind="WaterOff" />
                             </Button>
                         </StackPanel>
                     </materialDesign:PopupBox>

@@ -33,17 +33,17 @@ namespace Prepper_Manager.View.Pages
 
         private void b_waterOverview_Click(object sender, RoutedEventArgs e)
         {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[5];
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[1];
         }
 
         private void b_foodOverview_Click(object sender, RoutedEventArgs e)
         {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[2];
         }
 
         private void b_peopleOverview_Click(object sender, RoutedEventArgs e)
         {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[2];
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
         }
 
         private void b_sampleData_Click(object sender, RoutedEventArgs e)
