@@ -30,7 +30,7 @@ namespace Prepper_Manager.Model
         }
 
         public int calorieIntake { get; set; }
-        
+
         public string imagePath { get; set; }
 
         public Person()

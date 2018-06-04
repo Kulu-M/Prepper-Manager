@@ -200,21 +200,27 @@
                         </TextBox.Text>
                     </TextBox>
 
-                    <TextBox materialDesign:HintAssist.Hint="Item Name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
+                    <TextBox materialDesign:HintAssist.Hint="Total Calories" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
                         <TextBox.Text>
-                            <Binding ElementName="lb_foodList" Path="SelectedItem.itemName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                            <Binding ElementName="lb_foodList" Path="SelectedItem.calories" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                         </TextBox.Text>
                     </TextBox>
 
-                    <TextBox materialDesign:HintAssist.Hint="Brand Name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Margin="0,40,0,0">
-                        <TextBox.Text>
-                            <Binding ElementName="lb_foodList" Path="SelectedItem.brandName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-                        </TextBox.Text>
-                    </TextBox>
+                    <!--<DatePicker
+                        x:Name="dp_expirationDatePicker"
+                        Margin="0,40,0,0"
+                        HorizontalAlignment="Left"
+                        materialDesign:HintAssist.Hint="Pick Date"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" >
+                        <DatePicker.SelectedDate>
+                            <Binding ElementName="lb_foodList" Path="SelectedItem.expirationDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                        </DatePicker.SelectedDate>
+                        </DatePicker>-->
+
 
                 </StackPanel>
 
-                <showMeTheXaml:XamlDisplay Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Key="snackbar" VerticalContentAlignment="Bottom" HorizontalAlignment="Center">
+                <showMeTheXaml:XamlDisplay Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Key="snackbar" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                     <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
                                      x:Name="sb_deletedFoodSnackBar" />
                 </showMeTheXaml:XamlDisplay>

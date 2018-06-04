@@ -26,6 +26,13 @@ namespace Prepper_Manager.Model
         public string location { get; set; }
         public DateTime expirationDate { get; set; }
 
+        #region Constructor
+        public Food()
+        {
+            expirationDate = DateTime.Now;
+        }
+        #endregion Constructor
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

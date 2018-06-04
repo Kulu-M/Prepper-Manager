@@ -61,7 +61,24 @@ namespace Prepper_Manager.View.Pages
 
         private void b_removeFood(object sender, RoutedEventArgs e)
         {
-            
+            if (lb_foodList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a food supply from your List!");
+                return;
+            }
+
+            var foodToRemove = lb_foodList.SelectedItem as Model.Food;
+            App._vmData.foodList.Remove(foodToRemove);
+
+            //SnackBarMessage
+            var messageQueue = sb_deletedFoodSnackBar.MessageQueue;
+            var message = "Deleted " + foodToRemove.foodName + ".";
+            if (!String.IsNullOrWhiteSpace(foodToRemove?.location))
+            {
+                message = "Deleted " + foodToRemove.foodName + " in Location " + foodToRemove.location + ".";
+            }
+            //the message queue can be called from any thread
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
 
         private void tb_newFoodTextBox_TextChanged(object sender, TextChangedEventArgs e)

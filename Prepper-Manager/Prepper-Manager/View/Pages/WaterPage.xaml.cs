@@ -51,7 +51,20 @@ namespace Prepper_Manager.View.Pages
                 MessageBox.Show("Select an item from you water supplies.");
                 return;
             }
-            App._vmData.waterList.Remove(dg_waterItems.SelectedItem as Model.Water);
+
+            var waterToRemove = dg_waterItems.SelectedItem as Model.Water;
+
+            App._vmData.waterList.Remove(waterToRemove);
+
+            //SnackBarMessage
+            var messageQueue = sb_deletedWaterSnackBar.MessageQueue;
+            var message = "Deleted " + waterToRemove.name + ".";
+            if (!String.IsNullOrWhiteSpace(waterToRemove?.location))
+            {
+                message = "Deleted " + waterToRemove.name + " in Location " + waterToRemove.location + ".";
+            }
+            //the message queue can be called from any thread
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
     }
 }

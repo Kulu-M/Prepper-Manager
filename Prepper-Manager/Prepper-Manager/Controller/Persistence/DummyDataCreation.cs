@@ -54,18 +54,33 @@ namespace Prepper_Manager.Controller.Persistence
             App._vmData.foodList = new ObservableCollection<Food>();
             App._vmData.foodList.Clear();
 
-            var f1 = new Food();
-            f1.foodName = "Spaghetti";
-            f1.calories = 500;
-            f1.location = "Basement";
+            var f1 = new Food
+            {
+                foodName = "Spaghetti",
+                calories = 500,
+                location = "Basement",
+                expirationDate = DateTime.Now + TimeSpan.FromDays(300)
+            };
 
-            var f2 = new Food();
-            f2.foodName = "Rice";
-            f2.calories = 200;
-            f2.location = "Kitchen";
+            var f2 = new Food
+            {
+                foodName = "Rice",
+                calories = 200,
+                location = "Kitchen",
+                expirationDate = DateTime.Now + TimeSpan.FromDays(3000)
+            };
+
+            var f3 = new Food
+            {
+                foodName = "Burnt Popcorn",
+                calories = 13337,
+                location = "Kitchen",
+                expirationDate = DateTime.Now + TimeSpan.FromDays(30)
+            };
 
             App._vmData.foodList.Add(f1);
             App._vmData.foodList.Add(f2);
+            App._vmData.foodList.Add(f3);
 
             FoodCalculation.calculateFood();
         }
