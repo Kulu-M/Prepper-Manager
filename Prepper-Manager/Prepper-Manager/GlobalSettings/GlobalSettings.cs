@@ -8,9 +8,9 @@ namespace Prepper_Manager.GlobalSettings
 {
     public static class GlobalSettings
     {
-        public static int dailyCalorieIntakeMale = 2200;
+        public static int dailyCalorieIntakeMaleDefault = 2200;
 
-        public static int dailyCalorieIntakeFemale = 1800;
+        public static int dailyCalorieIntakeFemaleDefault = 1800;
 
         public static int waterConsumptionPerDayPerPersonInLiter = 2;
     }

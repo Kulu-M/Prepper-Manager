@@ -27,8 +27,7 @@ namespace Prepper_Manager.Controller.TipOfTheDay
         public static void startTipOfTheDayChanger()
         {
             Thread.CurrentThread.IsBackground = true;
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(3);
+            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(3)};
             timer.Tick += timer_Tick;
             timer.Start();
         }

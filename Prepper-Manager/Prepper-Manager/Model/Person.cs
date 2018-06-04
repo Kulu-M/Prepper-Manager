@@ -21,10 +21,10 @@ namespace Prepper_Manager.Model
             {
                 _gender = value;
                 if (value == "Male")
-                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeMale;
+                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeMaleDefault;
                 else if (value == "Female")
                 {
-                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeFemale;
+                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeFemaleDefault;
                 }
             }
         }

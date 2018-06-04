@@ -66,7 +66,7 @@
                         <TextBlock Margin="35,15,0,25" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
             Your total water supplies</TextBlock>
 
-                        <DataGrid x:Name="dg_waterItems" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" >
+                        <DataGrid x:Name="dg_waterItems" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" CellEditEnding="dg_waterItems_CellEditEnding" >
                             <DataGrid.Columns>
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding name, Mode=TwoWay}"
                          Header="Name" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>

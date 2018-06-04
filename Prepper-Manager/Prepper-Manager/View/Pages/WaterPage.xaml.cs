@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using Prepper_Manager.Controller.Calculation;
 
 namespace Prepper_Manager.View.Pages
 {
@@ -37,6 +38,7 @@ namespace Prepper_Manager.View.Pages
             var w1 = new Model.Water { name = tb_newWaterTextBox.Text };
             App._vmData.waterList.Add(w1);
             tb_newWaterTextBox.Text = "";
+            WaterCalculation.calculateWater();
         }
 
         private void b_addWater(object sender, RoutedEventArgs e)
@@ -56,6 +58,8 @@ namespace Prepper_Manager.View.Pages
 
             App._vmData.waterList.Remove(waterToRemove);
 
+            WaterCalculation.calculateWater();
+
             //SnackBarMessage
             var messageQueue = sb_deletedWaterSnackBar.MessageQueue;
             var message = "Deleted " + waterToRemove.name + ".";
@@ -65,6 +69,11 @@ namespace Prepper_Manager.View.Pages
             }
             //the message queue can be called from any thread
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
+        }
+
+        private void dg_waterItems_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            WaterCalculation.calculateWater();
         }
     }
 }
