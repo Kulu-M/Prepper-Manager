@@ -28,7 +28,7 @@ namespace Prepper_Manager.View.Pages
 
         private void B_acceptDeletePerson_OnClick_acceptDeleteWater_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!(lb_waterList.SelectedItem is Water)) return;
+            //if (!(lb_waterList.SelectedItem is Water)) return;
             var waterToRemove = lb_waterList.SelectedItem as Model.Water;
             App._vmData.waterList.Remove(lb_waterList.SelectedItem as Model.Water);
 

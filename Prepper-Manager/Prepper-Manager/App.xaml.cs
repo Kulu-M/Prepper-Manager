@@ -30,7 +30,7 @@ namespace Prepper_Manager
             //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
             //Thread.Sleep(2000);
             //var x = App._vmData.searchResultsExperimental;
-            //object testList = JsonConvert.DeserializeObject(x.ToString());
+            // object testList = JsonConvert.DeserializeObject(x.ToString());
             //~DEBUG
 
             //Load Saved Data from User
