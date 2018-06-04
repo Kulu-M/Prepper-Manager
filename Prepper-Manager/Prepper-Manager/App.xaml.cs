@@ -29,7 +29,7 @@ namespace Prepper_Manager
             //DEBUG
             //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
             //Thread.Sleep(2000);
-            //var x = App._vmData.searchResultsExperimental;
+            //App._vmData.searchResultsExperimental4 = JsonConvert.DeserializeObject<APIRootObject>(App._vmData.searchResultsExperimental5);
             // object testList = JsonConvert.DeserializeObject(x.ToString());
             //~DEBUG
 

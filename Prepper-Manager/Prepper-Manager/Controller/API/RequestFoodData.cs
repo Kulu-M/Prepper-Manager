@@ -50,6 +50,8 @@ namespace Prepper_Manager.Controller.API
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("x-app-id", NutritionixAPIKey.ApplicationID);
             request.AddHeader("x-app-key", NutritionixAPIKey.ApplicationKey);
+            request.AddHeader("x-remote-user-id", "0");
+
             request.RequestFormat = DataFormat.Json;
             
             //Add the JSON Body
@@ -60,24 +62,29 @@ namespace Prepper_Manager.Controller.API
             //App._vmData.searchResultsExperimental = JObject.Parse(response.Content)["foods"].ToList();
 
             //request.AddBody(new { query = searchItem});
+            //var x = client.Execute(request);
 
-            var asyncHandler = client.ExecuteAsync<List<object>>(request, r =>
-            {
-                if (r.ResponseStatus == ResponseStatus.Completed)
-                {
-                    App._vmData.searchResultsExperimental = JObject.Parse(r.Content)["foods"].ToList();
+            //Working:
+            App._vmData.searchResultsExperimental5 = client.Execute(request).Content;
 
-                    //var y = r.Content;
+            //var asyncHandler = client.ExecuteAsync<List<object>>(request, r =>
+            //{
+            //    if (r.ResponseStatus == ResponseStatus.Completed)
+            //    {
+            //        App._vmData.searchResultsExperimental5 = r.Content;
+            //        App._vmData.searchResultsExperimental = JObject.Parse(r.Content)["foods"].ToList();
 
-                    App._vmData.searchResultsExperimental3 = JsonConvert.DeserializeObject<object>(r.Content);
+            //        //var y = r.Content;
 
-                    //foreach (var jObject in JsonConvert.DeserializeObject(r.Content))
-                    //{
-                    //    App._vmData.searchResultsExperimental2.Add(JObjectToObjectMapper.mapJObjectToFood(jObject));
-                    //}
-                   
-                }
-            });
+            //        App._vmData.searchResultsExperimental3 = JsonConvert.DeserializeObject<object>(r.Content);
+
+            //        //foreach (var jObject in JsonConvert.DeserializeObject(r.Content))
+            //        //{
+            //        //    App._vmData.searchResultsExperimental2.Add(JObjectToObjectMapper.mapJObjectToFood(jObject));
+            //        //}
+            //        App._vmData.searchResultsExperimental4 = JsonConvert.DeserializeObject<APIRootObject>(r.Content);
+            //    }
+            //});
 
 
         }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Prepper_Manager.Controller.API
 {
-
+    public class APIRootObject
+    {
+        public List<Food> foods { get; set; }
+    }
+    
     public class APIObject
     {
         public int attr_id { get; set; }
@@ -79,9 +83,6 @@ namespace Prepper_Manager.Controller.API
         public object sub_recipe { get; set; }
     }
 
-    public class APIRootObject
-    {
-        public List<Food> foods { get; set; }
-    }
+   
 }
 

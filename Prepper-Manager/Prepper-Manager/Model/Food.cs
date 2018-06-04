@@ -24,6 +24,8 @@ namespace Prepper_Manager.Model
         public string brandName { get; set; }
         public int calories { get; set; }
         public string location { get; set; }
+        public DateTime expirationDate { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

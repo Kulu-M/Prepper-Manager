@@ -88,6 +88,8 @@
 
                                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding location, Mode=TwoWay}"
                                                                        Header="Location" EditingElementStyle="{DynamicResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+
+
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -99,6 +101,7 @@
                     <materialDesign:PopupBox Style="{DynamicResource MaterialDesignMultiFloatingActionPopupBox}" Margin="0,0,30,30" HorizontalAlignment="Right">
                         <StackPanel>
                             <Button ToolTip="Add food ressource" Click="b_addFood" Background="LimeGreen" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+
                                 <materialDesign:PackIcon Kind="Food"/>
                             </Button>
                             <Button ToolTip="Remove food ressource" Click="b_removeFood" Background="Red">

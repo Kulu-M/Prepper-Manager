@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prepper_Manager.Annotations;
+using Prepper_Manager.Controller.API;
 using Prepper_Manager.Controller.Calculation;
 using Prepper_Manager.Model;
 using RestSharp;
+using Food = Prepper_Manager.Model.Food;
 
 namespace Prepper_Manager.ViewModel
 {
@@ -77,6 +79,10 @@ namespace Prepper_Manager.ViewModel
         public List<Food> searchResultsExperimental2;
 
         public object searchResultsExperimental3;
+
+        public APIRootObject searchResultsExperimental4;
+
+        public string searchResultsExperimental5;
         //Random ~
 
         #region People
