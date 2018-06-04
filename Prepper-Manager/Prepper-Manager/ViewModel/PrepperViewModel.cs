@@ -61,16 +61,26 @@ namespace Prepper_Manager.ViewModel
 
         #endregion Constructor
 
+        #region Lists - Water, Food, People
+
         public ObservableCollection<Food> foodList = new ObservableCollection<Food>();
 
         public ObservableCollection<Water> waterList = new ObservableCollection<Water>();
 
+        public ObservableCollection<Person> personList = new ObservableCollection<Person>();
+
+        #endregion Lists - Water, Food, People
+
+        #region Main Page Status Messages
         public string waterReservesHint { get; set; }
 
         public string foodReservesHint { get; set; }
 
         public string peopleCountHint { get; set; }
 
+        #endregion Main Page Status Messages
+
+        #region Testing API Stuff
         //Random TODO cleanup
 
         public List<JToken> searchResultsExperimental;
@@ -83,17 +93,10 @@ namespace Prepper_Manager.ViewModel
 
         public string searchResultsExperimental5;
         //Random ~
-
+        #endregion Testing API Stuff
+ 
         [JsonIgnore]
         public List<string> apiSearchResults { get; set; }
-
-       
-
-        #region People
-
-        public ObservableCollection<Person> personList = new ObservableCollection<Person>();
-
-        #endregion People
 
         #region Tip of the Day
 

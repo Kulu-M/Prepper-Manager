@@ -123,7 +123,7 @@
                                                                 </StackPanel>
                                                             </StackPanel>
                                                         </materialDesign:DialogHost.DialogContent>
-                                                        <Button x:Name="b_deletePerson" Style="{DynamicResource MaterialDesignFlatButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" Click="b_deletePerson_Click" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                                                        <Button x:Name="b_deletePerson" Style="{DynamicResource MaterialDesignFlatButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
                                                             <materialDesign:PackIcon
                                                                 Kind="Delete"
                                                                 Height="24"

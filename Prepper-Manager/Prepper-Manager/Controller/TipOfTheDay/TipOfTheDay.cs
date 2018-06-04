@@ -14,6 +14,7 @@ namespace Prepper_Manager.Controller.TipOfTheDay
 {
     public class TipOfTheDay : INotifyPropertyChanged
     {
+        //TODO extract tips from other source
         public static ObservableCollection<string> tipsOfTheDay = new ObservableCollection<string>
         {
             "Tip of the Day: Lore preppus maximus dolor sit prepparatum amet.",
