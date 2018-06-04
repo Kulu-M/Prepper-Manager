@@ -50,7 +50,7 @@ namespace Prepper_Manager.Controller.API
     {
         public string food_name { get; set; }
         public object brand_name { get; set; }
-        public int serving_qty { get; set; }
+        public double serving_qty { get; set; }
         public string serving_unit { get; set; }
         public int serving_weight_grams { get; set; }
         public double nf_calories { get; set; }

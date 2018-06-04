@@ -42,7 +42,7 @@ namespace Prepper_Manager.Controller.API
             });
         }
 
-        public static void getNutritionValuesForSpecificFoodItemCommon(string searchItem)
+        public static APIRootObject getNutritionValuesForSpecificFoodItemCommon(string searchItem)
         {
             var client = new RestClient("https://trackapi.nutritionix.com");
 
@@ -65,7 +65,8 @@ namespace Prepper_Manager.Controller.API
             //var x = client.Execute(request);
 
             //Working:
-            App._vmData.searchResultsExperimental5 = client.Execute(request).Content;
+            //App._vmData.searchResultsExperimental5 = client.Execute(request).Content;
+            return JsonConvert.DeserializeObject<APIRootObject>(client.Execute(request).Content);
 
             //var asyncHandler = client.ExecuteAsync<List<object>>(request, r =>
             //{

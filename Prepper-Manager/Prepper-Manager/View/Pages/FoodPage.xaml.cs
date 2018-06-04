@@ -89,9 +89,42 @@ namespace Prepper_Manager.View.Pages
                 return;
             }
 
-            RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+            //Debug:
+            lb_searchResults.ItemsSource = new List<string>
+            {
+                "bigmac",
+                "pasta",
+                "SpareRibs"
+            };
 
-            lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
+            //Release:
+            //RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+            //lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
         }
+
+        private void lb_searchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            tb_newFoodTextBox.Text = lb_searchResults.SelectedItem.ToString();
+            exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
+
+            var temp = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
+
+            //foreach (var nutr in temp)
+            //{
+                
+            //}
+
+            tb_temporaryNutritionValuesTextBox.Text = "Calories: " + temp.foods[0].nf_calories + Environment.NewLine + "Cholesterol: " + temp.foods[0].nf_cholesterol + Environment.NewLine + "Protein: " + temp.foods[0].nf_protein + Environment.NewLine + "Saturated fat: " + temp.foods[0].nf_saturated_fat + Environment.NewLine + "Sugars: " + temp.foods[0].nf_sugars + Environment.NewLine + "Sodium: " + temp.foods[0].nf_sodium + Environment.NewLine + "Carbohydrates: " + temp.foods[0].nf_total_carbohydrate + Environment.NewLine + "Total fat: " + temp.foods[0].nf_total_fat; 
+        }
+
+        //private void lb_searchResults_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
+        //}
+
+        //private void lb_searchResults_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    exp_temporaryNutritionValuesExpander.Visibility = Visibility.Collapsed;
+        //}
     }
 }

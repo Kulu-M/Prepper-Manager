@@ -71,9 +71,6 @@ namespace Prepper_Manager.ViewModel
 
         //Random TODO cleanup
 
-        [JsonIgnore]
-        public List<string> apiSearchResults { get; set; }
-
         public List<JToken> searchResultsExperimental;
 
         public List<Food> searchResultsExperimental2;
@@ -84,6 +81,11 @@ namespace Prepper_Manager.ViewModel
 
         public string searchResultsExperimental5;
         //Random ~
+
+        [JsonIgnore]
+        public List<string> apiSearchResults { get; set; }
+
+       
 
         #region People
 
