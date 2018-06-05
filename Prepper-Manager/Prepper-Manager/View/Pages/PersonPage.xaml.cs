@@ -36,12 +36,19 @@ namespace Prepper_Manager.View.Pages
         {
             var p = new Person { firstName = "New Person" };
             App._vmData.personList.Add(p);
-            FoodCalculation.calculateFood();
+
+            PeopleCalculation.calculateNumberOfPeople();
+            WaterCalculation.calculateWater();
+            FoodCalculation.calculateFood();            
         }
 
         private void b_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
         {
             App._vmData.personList.Remove(((((sender as Button).Parent as StackPanel).Parent as StackPanel).Parent as Card).DataContext as Person);
+
+            PeopleCalculation.calculateNumberOfPeople();
+            WaterCalculation.calculateWater();
+            FoodCalculation.calculateFood();
         }
     }
 }

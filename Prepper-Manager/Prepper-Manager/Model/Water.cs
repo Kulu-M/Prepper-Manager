@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Prepper_Manager.Annotations;
+using Prepper_Manager.Controller.Calculation;
 
 namespace Prepper_Manager.Model
 {
@@ -13,7 +14,20 @@ namespace Prepper_Manager.Model
     {
         public string name { get; set; }
         public string description { get; set; }
-        public double liter { get; set; }
+
+        private double _liter;
+        public double liter
+        {
+            get
+            {
+                return _liter;
+            }
+            set
+            {
+                _liter = value;
+                WaterCalculation.calculateWater();
+            }
+        }
         public string location { get; set; }
         public int count { get; set; }
 

@@ -72,11 +72,47 @@ namespace Prepper_Manager.ViewModel
         #endregion Lists - Water, Food, People
 
         #region Main Page Status Messages
-        public string waterReservesHint { get; set; }
+        private string _waterReservesHint;
+        public string waterReservesHint
+        {
+            get
+            {
+                return _waterReservesHint;
+            }
+            set
+            {
+                _waterReservesHint = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public string foodReservesHint { get; set; }
+        private string _foodReservesHint;
+        public string foodReservesHint
+        {
+            get
+            {
+                return _foodReservesHint;
+            }
+            set
+            {
+                _foodReservesHint= value;
+                OnPropertyChanged();
+            }
+        }
 
-        public string peopleCountHint { get; set; }
+        private string _peopleCountHint;
+        public string peopleCountHint
+        {
+            get
+            {
+                return _peopleCountHint;
+            }
+            set
+            {
+                _peopleCountHint = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion Main Page Status Messages
 
@@ -94,7 +130,7 @@ namespace Prepper_Manager.ViewModel
         public string searchResultsExperimental5;
         //Random ~
         #endregion Testing API Stuff
- 
+
         [JsonIgnore]
         public List<string> apiSearchResults { get; set; }
 
