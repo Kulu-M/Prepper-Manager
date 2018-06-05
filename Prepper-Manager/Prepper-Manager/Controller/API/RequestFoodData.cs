@@ -37,7 +37,7 @@ namespace Prepper_Manager.Controller.API
             {
                 if (r.ResponseStatus == ResponseStatus.Completed)
                 {
-                    App._vmData.apiSearchResults = JObject.Parse(r.Content)["common"].Select(p => p["food_name"].Value<string>()).ToList();
+                    App._vmData.apiSearchResults = (JObject.Parse(r.Content)["common"].Select(p => p["food_name"].Value<string>()).ToList());
                 }
             });
         }

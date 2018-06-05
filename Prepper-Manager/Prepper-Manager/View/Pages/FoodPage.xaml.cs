@@ -89,17 +89,21 @@ namespace Prepper_Manager.View.Pages
                 return;
             }
 
-            //Debug:
-            lb_searchResults.ItemsSource = new List<string>
-            {
-                "bigmac",
-                "pasta",
-                "spareribs"
-            };
+            //Debug: don't query API
+            //lb_searchResults.ItemsSource = new List<string>
+            //{
+            //    "bigmac",
+            //    "pasta",
+            //    "spareribs"
+            //};
 
-            //Release:
-            //RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
-            //lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
+            //Release: query API
+            RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+
+            if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
+            {
+                lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
+            }            
         }
 
         private void lb_searchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
