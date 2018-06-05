@@ -52,5 +52,22 @@ namespace Prepper_Manager.View.Pages
             DummyDataCreation.createSampleFoodList();
             DummyDataCreation.createSampleWaterList();
         }
+
+     
+
+        private void crd_water_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[1];
+        }
+
+        private void crd_food_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[2];
+        }
+
+        private void crd_household_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
+        }
     }
 }

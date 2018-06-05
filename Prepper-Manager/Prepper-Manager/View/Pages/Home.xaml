@@ -34,55 +34,50 @@
         </Grid.RowDefinitions>
 
 
-        <materialDesign:Card Grid.Column="1" Grid.Row="2" Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth5">
+        <materialDesign:Card x:Name="crd_water" Cursor="Hand" ToolTip="Open your water supply page." Grid.Column="1" Grid.Row="2" Height="300" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_water_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="200" />
                     <RowDefinition Height="20" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="5" />
+                    <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/water.png" Height="200" Margin="5"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding waterReservesHint}"/>
-                <Button Margin="0,20,0,10" x:Name="b_waterOverview" Width="60" Grid.Row="3" Click="b_waterOverview_Click">Edit</Button>
+                <Image Grid.Row="1" Source="/Resources/water.png" Height="200" Margin="5"/>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding waterReservesHint}"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card x:Name="crd_food" Cursor="Hand" Height="300" ToolTip="Open your food supply page." Grid.Row="2" Grid.Column="3" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_food_MouseLeftButtonUp">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="/Resources/food.jpg" Height="200" Margin="5"/>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}"/>
             </Grid>
         </materialDesign:Card>
 
 
-
-        <materialDesign:Card Grid.Row="2" Grid.Column="3" materialDesign:ShadowAssist.ShadowDepth="Depth5">
+        <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." Grid.Row="2" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="200" />
                     <RowDefinition Height="20" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="5" />
+                    <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/food.jpg" Height="200" Margin="5"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}"/>
-                <Button Margin="0,20,0,10" x:Name="b_foodOverview" Width="60" Grid.Row="3" Click="b_foodOverview_Click">Edit</Button>
+                <Image Grid.Row="1" Source="/Resources/people.jpg" Height="200" Margin="5"/>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding peopleCountHint}"/>
             </Grid>
         </materialDesign:Card>
 
-
-        <materialDesign:Card Grid.Row="2" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="5" />
-                </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="/Resources/people.jpg" Height="200" Margin="5"/>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding peopleCountHint}"/>
-                <Button x:Name="b_peopleOverview" Margin="0,20,0,10" Width="60" Grid.Row="3" Click="b_peopleOverview_Click">Edit</Button>
-            </Grid>
-        </materialDesign:Card>
-
-        <materialDesign:Card Padding="32" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" Padding="32" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
 
