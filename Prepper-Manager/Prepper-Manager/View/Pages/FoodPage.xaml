@@ -35,7 +35,10 @@
         <materialDesign:DialogHost DialogClosing="DialogHost_AddFood_OnDialogClosing">
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="16">
-                    <TextBlock>Insert Food Item</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Insert Food Item</TextBlock>
+                        <ProgressBar x:Name="pb_AddFoodLoadingBar" Visibility="Collapsed" Style="{DynamicResource MaterialDesignCircularProgressBar}" Value="70" IsIndeterminate="True" Margin="20,0,0,0" />                        
+                    </StackPanel>
                     <TextBox Margin="0 8 0 0" HorizontalAlignment="Stretch" x:Name="tb_newFoodTextBox" TextChanged="tb_newFoodTextBox_TextChanged" />
                     <ListBox x:Name="lb_searchResults" SelectionChanged="lb_searchResults_SelectionChanged">
                         <ListBox.ItemTemplate>

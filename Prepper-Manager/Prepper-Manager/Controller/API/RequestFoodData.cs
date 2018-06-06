@@ -66,7 +66,17 @@ namespace Prepper_Manager.Controller.API
 
             //Working:
             //App._vmData.searchResultsExperimental5 = client.Execute(request).Content;
-            return JsonConvert.DeserializeObject<APIRootObject>(client.Execute(request).Content);
+
+            APIRootObject re = new APIRootObject();
+            try
+            {
+                re = JsonConvert.DeserializeObject<APIRootObject>(client.Execute(request).Content);
+            }
+            catch (Exception)
+            {
+
+            }
+            return re;
 
             //var asyncHandler = client.ExecuteAsync<List<object>>(request, r =>
             //{

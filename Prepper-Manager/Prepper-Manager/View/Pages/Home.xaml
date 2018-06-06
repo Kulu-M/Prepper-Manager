@@ -31,8 +31,8 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
@@ -91,7 +91,7 @@
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
 
-        <showMeTheXaml:XamlDisplay Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="7" Key="snackbar" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
+        <showMeTheXaml:XamlDisplay Grid.Row="3" Grid.Column="0" Margin="0,0,0,20" Grid.ColumnSpan="7" Key="snackbar" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
                                      x:Name="sb_homeSnacker" />
         </showMeTheXaml:XamlDisplay>
