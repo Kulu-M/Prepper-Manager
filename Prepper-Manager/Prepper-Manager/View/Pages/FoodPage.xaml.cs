@@ -133,7 +133,7 @@ namespace Prepper_Manager.View.Pages
             //if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
             //{
             //    lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
-            //}            
+            //}
         }
 
         private void lb_searchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -146,8 +146,6 @@ namespace Prepper_Manager.View.Pages
             temporaryNutritionValuesString = APIRootObjectToNutritionValuesStringConverter.createStringFromAPIRootObject(temporaryFood);
 
             tb_temporaryNutritionValuesTextBox.Text = temporaryNutritionValuesString;
-        }
-
-        
+        }        
     }
 }

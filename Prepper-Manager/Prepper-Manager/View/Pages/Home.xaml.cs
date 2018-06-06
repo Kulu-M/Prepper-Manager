@@ -60,5 +60,13 @@ namespace Prepper_Manager.View.Pages
         {
             App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
         }
+
+        private void b_warningExpiringFood_Click(object sender, RoutedEventArgs e)
+        {
+            //SnackBarMessage
+            var messageQueue = sb_homeSnacker.MessageQueue;
+            var message = "You have expiring Food items! Check your food supply page for details.";
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
+        }
     }
 }

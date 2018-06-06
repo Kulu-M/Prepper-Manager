@@ -31,6 +31,7 @@
     </UserControl.Resources>
 
     <UserControl>
+        
         <materialDesign:DialogHost DialogClosing="DialogHost_AddFood_OnDialogClosing">
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="16">
@@ -92,6 +93,10 @@
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
 
+
+             
+
+
                 <TextBlock Grid.Column="1" Grid.Row="1" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
             
             Your total food supplies
@@ -136,22 +141,26 @@
                         </TextBox.Text>
                     </TextBox>
 
-                    <TextBox materialDesign:HintAssist.Hint="Total Calories" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
+                    <TextBox x:Name="tb_foodCalories" materialDesign:HintAssist.Hint="Total Calories" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
                         <TextBox.Text>
                             <Binding ElementName="lb_foodList" Path="SelectedItem.calories" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                         </TextBox.Text>
                     </TextBox>
 
-                    <!--<DatePicker
+                    <DatePicker
+                        
                         x:Name="dp_expirationDatePicker"
                         Margin="0,40,0,0"
                         HorizontalAlignment="Left"
-                        materialDesign:HintAssist.Hint="Pick Date"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" >
+                        materialDesign:HintAssist.Hint="Expiration Date   "
+                        Style="{DynamicResource MaterialDesignFloatingHintDatePicker}" >
                         <DatePicker.SelectedDate>
                             <Binding ElementName="lb_foodList" Path="SelectedItem.expirationDate" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                         </DatePicker.SelectedDate>
-                        </DatePicker>-->
+                        <DatePicker.Width>
+                            <Binding ElementName="tb_foodCalories" Path="ActualWidth"></Binding>
+                        </DatePicker.Width>
+                        </DatePicker>
 
 
                     <Expander HorizontalAlignment="Stretch" Margin="0,30,0,0"
