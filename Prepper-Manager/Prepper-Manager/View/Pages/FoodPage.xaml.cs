@@ -111,7 +111,6 @@ namespace Prepper_Manager.View.Pages
             if (lb_searchResults.SelectedItem == null) return;
             tb_newFoodTextBox.Text = lb_searchResults.SelectedItem.ToString();
             exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
-            //exp_temporaryNutritionValuesExpander.IsEnabled = true;
 
             var temp = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
 

@@ -50,6 +50,11 @@ namespace Prepper_Manager
         private void b_restoreSampleData_Click(object sender, RoutedEventArgs e)
         {
             DummyDataCreation.createAllSampleData();
+
+            //SnackBarMessage
+            var messageQueue = sb_deletedFoodSnackBar.MessageQueue;
+            var message = "Restored sample data.";            
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
     }
 }

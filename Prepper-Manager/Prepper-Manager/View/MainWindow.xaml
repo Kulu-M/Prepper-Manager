@@ -7,6 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:mainWindow="clr-namespace:Prepper_Manager.ViewModel.MainWindow"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+        xmlns:showMeTheXaml="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -20,7 +21,7 @@
 
 
 
-
+    <Grid>
     <!--region Sidebar-->
     <wpf:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
         <wpf:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}">
@@ -60,10 +61,19 @@
                     <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
                 </ScrollViewer>
 
+                
+
                 <!--endregion Content-->
             </DockPanel>
+            
         </wpf:DrawerHost>
+        
     </wpf:DialogHost>
 
+    <showMeTheXaml:XamlDisplay Key="snackbar" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,50">
+        <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
+                                     x:Name="sb_deletedFoodSnackBar" />
+    </showMeTheXaml:XamlDisplay>
 
+    </Grid>
 </Window>
