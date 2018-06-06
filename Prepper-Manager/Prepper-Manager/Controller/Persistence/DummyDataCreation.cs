@@ -33,7 +33,7 @@ namespace Prepper_Manager.Controller.Persistence
             {
                 firstName = "Mohammed",
                 lastName = "Yass",
-                gender = "Male",
+                calorieIntake = 2000,
                 imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\yass.jpg"))
             };
 
@@ -41,7 +41,7 @@ namespace Prepper_Manager.Controller.Persistence
             {
                 firstName = "Babsi",
                 lastName = "Sprick",
-                gender = "Female",
+                calorieIntake = 1500,
                 imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\sprick.jpg"))
             };
 
@@ -49,7 +49,7 @@ namespace Prepper_Manager.Controller.Persistence
             {
                 firstName = "Gerd",
                 lastName = "Möckel",
-                gender = "Male",
+                calorieIntake = 3000,
                 imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\moeckel.jpg"))
             };
 

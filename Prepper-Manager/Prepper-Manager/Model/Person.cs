@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prepper_Manager.Controller.Calculation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,41 +12,28 @@ namespace Prepper_Manager.Model
     public class Person
     {
         public string firstName { get; set; }
-        public string lastName { get; set; }
+        public string lastName { get; set; }        
 
-        private string _gender;
-        public string gender
+        private int _calorieIntake;
+        public int calorieIntake
         {
-            get => _gender;
+            get
+            {
+                return _calorieIntake;
+            }
             set
             {
-                _gender = value;
-                if (value == "Male")
-                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeMaleDefault;
-                else if (value == "Female")
-                {
-                    calorieIntake = GlobalSettings.GlobalSettings.dailyCalorieIntakeFemaleDefault;
-                }
+                _calorieIntake = value;
+                FoodCalculation.calculateFood();
             }
         }
-
-        public int calorieIntake { get; set; }
 
         public string imagePath { get; set; }
 
         public Person()
         {
             imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\default.png");
-        }
-
-        //TODO make gender IEnumerable
-        public IEnumerable<string> Foods
-        {
-            get
-            {
-                yield return "Male";
-                yield return "Female";
-            }
-        }
+            calorieIntake = 2000;
+        }        
     }
 }
