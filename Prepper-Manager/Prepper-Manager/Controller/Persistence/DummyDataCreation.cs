@@ -67,7 +67,7 @@ namespace Prepper_Manager.Controller.Persistence
 
             var f1 = new Food
             {
-                foodName = "Spaghetti",
+                name = "Spaghetti",
                 calories = 500,
                 location = "Basement",
                 expirationDate = DateTime.Now + TimeSpan.FromDays(300)
@@ -75,7 +75,7 @@ namespace Prepper_Manager.Controller.Persistence
 
             var f2 = new Food
             {
-                foodName = "Rice",
+                name = "Rice",
                 calories = 200,
                 location = "Kitchen",
                 expirationDate = DateTime.Now + TimeSpan.FromDays(3000)
@@ -83,7 +83,7 @@ namespace Prepper_Manager.Controller.Persistence
 
             var f3 = new Food
             {
-                foodName = "Burnt Popcorn",
+                name = "Burnt Popcorn",
                 calories = 13337,
                 location = "Kitchen",
                 expirationDate = DateTime.Now + TimeSpan.FromDays(30)

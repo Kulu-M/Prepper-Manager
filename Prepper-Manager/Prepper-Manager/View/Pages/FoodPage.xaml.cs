@@ -22,6 +22,9 @@ namespace Prepper_Manager.View.Pages
     /// </summary>
     public partial class FoodPage : UserControl
     {
+        APIRootObject temporaryFood = null;
+        string temporaryNutritionValuesString = "";
+
         public FoodPage()
         {
             InitializeComponent();
@@ -34,9 +37,36 @@ namespace Prepper_Manager.View.Pages
             lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
         }
 
+        private void b_addFoodDialogAccept_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tb_newFoodTextBox.Text))
+            {
+                lb_searchResults.ItemsSource = null;
+                return;
+            }
+            
+            var newFood = new Model.Food();
+            newFood.name = tb_newFoodTextBox.Text;
+            newFood.nutritionValuesString = temporaryNutritionValuesString;
+
+            if (temporaryFood != null)
+            {
+                newFood.calories = APIRootObjectToNutritionValuesStringConverter.extractCaloriesFromAPIRootObject(temporaryFood);
+            }
+            else
+            {
+                newFood.calories = 0;
+            }            
+
+            App._vmData.foodList.Add(newFood);
+
+            temporaryNutritionValuesString = "";
+            temporaryFood = null;
+        }
+
         private void DialogHost_AddFood_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
         {
-            
+           
         }
 
         private void lb_foodList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,10 +102,10 @@ namespace Prepper_Manager.View.Pages
 
             //SnackBarMessage
             var messageQueue = sb_deletedFoodSnackBar.MessageQueue;
-            var message = "Deleted " + foodToRemove.foodName + ".";
+            var message = "Deleted " + foodToRemove.name + ".";
             if (!String.IsNullOrWhiteSpace(foodToRemove?.location))
             {
-                message = "Deleted " + foodToRemove.foodName + " in Location " + foodToRemove.location + ".";
+                message = "Deleted " + foodToRemove.name + " in Location " + foodToRemove.location + ".";
             }
             //the message queue can be called from any thread
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
@@ -112,9 +142,12 @@ namespace Prepper_Manager.View.Pages
             tb_newFoodTextBox.Text = lb_searchResults.SelectedItem.ToString();
             exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
 
-            var temp = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
+            temporaryFood = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
+            temporaryNutritionValuesString = APIRootObjectToNutritionValuesStringConverter.createStringFromAPIRootObject(temporaryFood);
 
-            tb_temporaryNutritionValuesTextBox.Text = "Calories: " + temp.foods[0].nf_calories + Environment.NewLine + "Cholesterol: " + temp.foods[0].nf_cholesterol + Environment.NewLine + "Protein: " + temp.foods[0].nf_protein + Environment.NewLine + "Saturated fat: " + temp.foods[0].nf_saturated_fat + Environment.NewLine + "Sugars: " + temp.foods[0].nf_sugars + Environment.NewLine + "Sodium: " + temp.foods[0].nf_sodium + Environment.NewLine + "Carbohydrates: " + temp.foods[0].nf_total_carbohydrate + Environment.NewLine + "Total fat: " + temp.foods[0].nf_total_fat; 
+            tb_temporaryNutritionValuesTextBox.Text = temporaryNutritionValuesString;
         }
+
+        
     }
 }

@@ -44,10 +44,10 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                        <Button x:Name="b_addFoodDialogAccept" Style="{DynamicResource MaterialDesignFlatButton}"
                                 IsDefault="True"
                                 Margin="0 8 8 0"
-                                Command="materialDesign:DialogHost.CloseDialogCommand">
+                                Command="materialDesign:DialogHost.CloseDialogCommand" Click="b_addFoodDialogAccept_Click">
                             <Button.CommandParameter>
                                 <system:Boolean>True</system:Boolean>
                             </Button.CommandParameter>
@@ -113,9 +113,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding foodName}"/>
-                                        <TextBlock Text=" @ "/>
-                                        <TextBlock Text="{Binding location}"/>
+                                        <TextBlock Text="{Binding name}"/>                                        
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -128,13 +126,7 @@
 
                     <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  >
                         <TextBox.Text>
-                            <Binding ElementName="lb_foodList" Path="SelectedItem.foodName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-                        </TextBox.Text>
-                    </TextBox>
-
-                    <TextBox materialDesign:HintAssist.Hint="Description" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0" TextWrapping="Wrap">
-                        <TextBox.Text>
-                            <Binding ElementName="lb_foodList" Path="SelectedItem.calories" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                            <Binding ElementName="lb_foodList" Path="SelectedItem.name" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
                         </TextBox.Text>
                     </TextBox>
 
@@ -162,14 +154,17 @@
                         </DatePicker>-->
 
 
-                    <Expander HorizontalAlignment="Stretch" Margin="0,10,0,0"
+                    <Expander HorizontalAlignment="Stretch" Margin="0,30,0,0"
                               Header="Nutrition Values">
                         <StackPanel Orientation="Vertical"
                                     TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
                                     Margin="24,8,24,16">
                             <TextBlock Text="Your Content" />
-                            <TextBlock Opacity=".68" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                       TextWrapping="Wrap"/>
+                            <TextBlock Opacity=".68" TextWrapping="Wrap">
+                                <TextBlock.Text>
+                                    <Binding ElementName="lb_foodList" Path="SelectedItem.nutritionValuesString" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                                </TextBlock.Text>
+                            </TextBlock>
                         </StackPanel>
                     </Expander>
 

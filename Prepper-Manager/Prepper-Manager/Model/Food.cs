@@ -11,18 +11,20 @@ namespace Prepper_Manager.Model
 {
     public class Food : INotifyPropertyChanged
     {
-        public string foodName { get; set; }
+        public string name { get; set; }
         public string servingUnit { get; set; }
         public string itemName { get; set; }
         public string brandName { get; set; }
         public int calories { get; set; }
         public string location { get; set; }
         public DateTime expirationDate { get; set; }
+        public string nutritionValuesString { get; set; }
 
         #region Constructor
         public Food()
         {
             expirationDate = DateTime.Now;
+            location = "";
         }
         #endregion Constructor
         
