@@ -155,14 +155,33 @@ namespace Prepper_Manager.View.Pages
             exp_temporaryNutritionValuesExpander.Visibility = Visibility.Visible;
             tb_newFoodTextBox.Text = lb_searchResults.SelectedItem.ToString(); //check if this gets fired from here
 
+            //Wait for UI Thread to display Loading Bar
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { })).Wait();
-            
-            temporaryFood = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(tb_newFoodTextBox.Text);
-            temporaryNutritionValuesString = APIRootObjectToNutritionValuesStringConverter.createStringFromAPIRootObject(temporaryFood);
-            tb_temporaryNutritionValuesTextBox.Text = temporaryNutritionValuesString;
 
-            pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;
-            dontUpdate = false;
+            BackgroundWorker bw = new BackgroundWorker();
+            // what to do in the background thread
+            bw.DoWork += new DoWorkEventHandler(
+                delegate (object o, DoWorkEventArgs args)
+                {
+                    BackgroundWorker b = o as BackgroundWorker;
+                            
+                    //Set the result and do the API Request
+                    args.Result = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(args.Argument as string);                  
+            });           
+
+            // what to do when worker completes its task (notify the user)
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(
+            delegate (object o, RunWorkerCompletedEventArgs args)
+            {
+                temporaryFood = args.Result as APIRootObject;
+                temporaryNutritionValuesString = APIRootObjectToNutritionValuesStringConverter.createStringFromAPIRootObject(temporaryFood);
+                tb_temporaryNutritionValuesTextBox.Text = temporaryNutritionValuesString;
+                pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;
+                dontUpdate = false;
+            });
+
+            var searchString = tb_newFoodTextBox.Text;
+            bw.RunWorkerAsync(searchString);
         }
     }
 }
