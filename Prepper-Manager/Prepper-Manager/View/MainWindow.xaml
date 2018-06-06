@@ -30,16 +30,20 @@
                                   DockPanel.Dock="Top"
                                   HorizontalAlignment="Right" Margin="16"
                                   IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                        
+                    <StackPanel>
+                        <ListBox x:Name="DemoItemsListBox" Margin="0 16 0 16" SelectedIndex="0"                        
                              ItemsSource="{Binding MainWindowPages}"
                              SelectedItem="{Binding SelectedItem}"
                              PreviewMouseLeftButtonUp="UIElement_OnMouseLeftButtonUp">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate DataType="mainWindow:MainWindowPage">
-                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="mainWindow:MainWindowPage">
+                                    <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                        <Button x:Name="b_restoreSampleData" Width="190" Height="25" Content="Restore sample data" Click="b_restoreSampleData_Click"></Button>
+                    </StackPanel>
                 </DockPanel>
             </wpf:DrawerHost.LeftDrawerContent>
 

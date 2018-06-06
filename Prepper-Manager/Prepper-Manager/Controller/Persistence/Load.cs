@@ -24,9 +24,8 @@ namespace Prepper_Manager.Controller.Persistence
             }
             catch (Exception e)
             {
-                //TODO ?
-                //File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"), JsonConvert.SerializeObject(App._vmData));
-                Console.WriteLine(e);
+                App._vmData = new PrepperViewModel();
+                DummyDataCreation.createAllSampleData();
             }
         }
     }

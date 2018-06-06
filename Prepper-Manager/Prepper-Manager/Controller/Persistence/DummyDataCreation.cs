@@ -13,6 +13,17 @@ namespace Prepper_Manager.Controller.Persistence
 {
     public class DummyDataCreation
     {
+        public static void createAllSampleData()
+        {
+            createDummyPersons();
+            createSampleFoodList();
+            createSampleWaterList();
+
+            FoodCalculation.calculateFood();
+            WaterCalculation.calculateWater();
+            PeopleCalculation.calculateNumberOfPeople();
+        }
+
         public static void createDummyPersons()
         {
             App._vmData.personList = new ObservableCollection<Person>();

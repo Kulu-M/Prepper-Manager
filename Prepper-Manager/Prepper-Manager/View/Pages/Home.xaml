@@ -28,13 +28,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <TextBlock Grid.Column="1" Grid.Row="1" Style="{DynamicResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">
+            
+            Preppy
 
-        <materialDesign:Card x:Name="crd_water" Cursor="Hand" ToolTip="Open your water supply page." Grid.Column="1" Grid.Row="2" Height="300" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_water_MouseLeftButtonUp">
+        </TextBlock>
+
+
+        <materialDesign:Card x:Name="crd_water" Cursor="Hand" ToolTip="Open your water supply page." Grid.Column="1" Grid.Row="3" Height="300" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_water_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
@@ -48,7 +55,7 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card x:Name="crd_food" Cursor="Hand" Height="300" ToolTip="Open your food supply page." Grid.Row="2" Grid.Column="3" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_food_MouseLeftButtonUp">
+        <materialDesign:Card x:Name="crd_food" Cursor="Hand" Height="300" ToolTip="Open your food supply page." Grid.Row="3" Grid.Column="3" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_food_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
@@ -63,7 +70,7 @@
         </materialDesign:Card>
 
 
-        <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." Grid.Row="2" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">
+        <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." Grid.Row="3" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
@@ -77,11 +84,9 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" Padding="32" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5">
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" Padding="32" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>
         </materialDesign:Card>
-
-        <Button x:Name="b_sampleData" Grid.Row="4" Grid.Column="1" Click="b_sampleData_Click">Restore Sample Data</Button>
 
 
     </Grid>

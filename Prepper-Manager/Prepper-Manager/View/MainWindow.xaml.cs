@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Prepper_Manager.Controller.TipOfTheDay;
 using Prepper_Manager.ViewModel;
+using Prepper_Manager.Controller.Persistence;
 
 namespace Prepper_Manager
 {
@@ -44,6 +45,11 @@ namespace Prepper_Manager
                 dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
             }
             MenuToggleButton.IsChecked = false;
+        }
+
+        private void b_restoreSampleData_Click(object sender, RoutedEventArgs e)
+        {
+            DummyDataCreation.createAllSampleData();
         }
     }
 }

@@ -38,8 +38,9 @@
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -50,7 +51,7 @@
 
         </TextBlock>
 
-        <WrapPanel x:Name="wp_peopleWrapper" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" >
+        <WrapPanel x:Name="wp_peopleWrapper" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" >
 
             <ItemsControl x:Name="ic_mainItemControl">
                 <ItemsControl.ItemsPanel>
@@ -181,7 +182,7 @@
 
 
 
-        <Button Width="50" Height="50" Grid.Row="3" Grid.Column="2" x:Name="b_addPerson" Style="{DynamicResource MaterialDesignFloatingActionButton}"
+        <Button Width="50" Height="50" Grid.Row="4" Grid.Column="2" x:Name="b_addPerson" Style="{DynamicResource MaterialDesignFloatingActionButton}"
                                  VerticalAlignment="Bottom" HorizontalAlignment="Right"   Margin="0,0,20,20" Click="b_addPerson_Click">
             <materialDesign:PackIcon
                 Kind="AccountPlus"
