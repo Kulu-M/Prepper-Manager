@@ -9,5 +9,7 @@ namespace Prepper_Manager.GlobalSettings
     public static class GlobalSettings
     {    
         public static int waterConsumptionPerDayPerPersonInLiter = 2;
+
+        public static int governmentalRecommendedSupplyPeriodInDays = 14;
     }
 }

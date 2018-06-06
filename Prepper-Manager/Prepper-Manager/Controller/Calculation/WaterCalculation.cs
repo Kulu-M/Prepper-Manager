@@ -29,6 +29,37 @@ namespace Prepper_Manager.Controller.Calculation
 
 
             App._vmData.waterReservesHint = "You have " + totalWaterLastingDays + " days of water";
+            calculateWaterProgress();
+        }
+
+        /// <summary>
+        /// Used to calculate how far the governmental recommended 2 weeks of water (and food) supplies are reached.
+        /// </summary>
+        public static void calculateWaterProgress()
+        {
+            var personCounter = 0;
+            double totalWaterCount = 0;
+
+            foreach (var person in App._vmData.personList)
+            {
+                personCounter += 1;
+            }
+
+            foreach (var water in App._vmData.waterList)
+            {
+                totalWaterCount += water.liter * water.count;
+            }
+
+            var neededWater = personCounter * GlobalSettings.GlobalSettings.governmentalRecommendedSupplyPeriodInDays * GlobalSettings.GlobalSettings.waterConsumptionPerDayPerPersonInLiter;
+
+            try
+            {
+                App._vmData.waterProgress = Convert.ToInt32((totalWaterCount / neededWater) * 100);
+            }
+            catch (Exception)
+            {
+                
+            }            
         }
     }
 }

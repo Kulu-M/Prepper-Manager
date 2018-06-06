@@ -68,5 +68,13 @@ namespace Prepper_Manager.View.Pages
             var message = "You have expiring Food items! Check your food supply page for details.";
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
+
+        private void crd_waterProgress_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //SnackBarMessage
+            var messageQueue = sb_homeSnacker.MessageQueue;
+            var message = "Governmental recommendation: 2 weeks of water and food.";
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));            
+        }
     }
 }

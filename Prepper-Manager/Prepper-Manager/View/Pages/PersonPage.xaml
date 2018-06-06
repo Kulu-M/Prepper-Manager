@@ -88,7 +88,7 @@
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
-                                        <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                        <materialDesign:ColorZone Mode="Light" Padding="6">
                                             <StackPanel Orientation="Horizontal">
                                                 <Button Style="{DynamicResource MaterialDesignToolForegroundButton}"
                                     Command="{x:Static materialDesign:Flipper.FlipCommand}"

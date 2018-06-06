@@ -85,6 +85,7 @@ namespace Prepper_Manager.ViewModel
                 OnPropertyChanged();
             }
         }
+        public int waterProgress { get; set; }
 
         private string _foodReservesHint;
         public string foodReservesHint
