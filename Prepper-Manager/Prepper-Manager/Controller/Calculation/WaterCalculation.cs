@@ -23,7 +23,7 @@ namespace Prepper_Manager.Controller.Calculation
             {
                 totalWaterCount += water.liter * water.count;
             }
-            
+
             totalWaterLastingDays = Math.Round(totalWaterCount / (personCounter *
                                     GlobalSettings.GlobalSettings.waterConsumptionPerDayPerPersonInLiter));
 
@@ -58,8 +58,8 @@ namespace Prepper_Manager.Controller.Calculation
             }
             catch (Exception)
             {
-                
-            }            
+
+            }
         }
     }
 }

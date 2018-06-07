@@ -37,9 +37,9 @@ namespace Prepper_Manager.ViewModel
             MainWindowPages = new[]
             {
                 new MainWindowPage("Home", new Home()),
-                new MainWindowPage("WaterPage", new WaterPage()),
-                new MainWindowPage("FoodPage", new FoodPage()),
-                new MainWindowPage("Person", new PersonPage()),
+                new MainWindowPage("Water supplies", new WaterPage()),
+                new MainWindowPage("Food supplies", new FoodPage()),
+                new MainWindowPage("Household", new PersonPage()),
             };
             //Defines the starting page
             SelectedItem = MainWindowPages[0];
