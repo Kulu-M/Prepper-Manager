@@ -127,21 +127,21 @@ namespace Prepper_Manager.View.Pages
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { })).Wait();
 
             //Debug: don't query API
-            lb_searchResults.ItemsSource = new List<string>
-            {
-                "bigmac",
-                "pasta",
-                "spareribs"
-            };
+            //lb_searchResults.ItemsSource = new List<string>
+            //{
+            //    "bigmac",
+            //    "pasta",
+            //    "spareribs"
+            //};
 
             //Release: query API
-            
-            //RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
 
-            //if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
-            //{
-            //    lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
-            //}
+            RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+
+            if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
+            {
+                lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
+            }
 
             pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;            
         }
