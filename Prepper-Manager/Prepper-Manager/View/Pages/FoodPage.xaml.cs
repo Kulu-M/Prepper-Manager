@@ -114,7 +114,14 @@ namespace Prepper_Manager.View.Pages
             }
 
             pb_AddFoodLoadingBar.Visibility = Visibility.Visible;
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { })).Wait();
+            try
+            {
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => { })).Wait();
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
 
             //Debug: don't query API
             //lb_searchResults.ItemsSource = new List<string>

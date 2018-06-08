@@ -10,7 +10,9 @@ namespace Prepper_Manager.Controller.Calculation
     {
         public static void calculateFood()
         {
-            decimal daysOfFoodSupplies = 0;
+            if (App._vmData.foodList == null || App._vmData.foodList.Count < 1 || App._vmData.personList == null ||
+                App._vmData.personList.Count < 1) return;
+
             decimal totalCaloriesStored = 0;
             decimal dailyCalorieConsumption = 0;
 
@@ -26,7 +28,7 @@ namespace Prepper_Manager.Controller.Calculation
 
             try
             {
-                daysOfFoodSupplies = Decimal.Round(totalCaloriesStored / dailyCalorieConsumption);
+                var daysOfFoodSupplies = Decimal.Round(totalCaloriesStored / dailyCalorieConsumption);
                 if (daysOfFoodSupplies <= 1)
                 {
                     App._vmData.foodReservesHint = "Your supplies won't last a day!";
@@ -39,6 +41,38 @@ namespace Prepper_Manager.Controller.Calculation
             catch (DivideByZeroException)
             {
                 App._vmData.foodReservesHint = "You have no supplies at all.";
+            }
+            calculateFoodProgress();
+        }
+
+        /// <summary>
+        /// Used to calculate how far the governmental recommended 2 weeks of water (and food) supplies are reached.
+        /// </summary>
+        public static void calculateFoodProgress()
+        {
+            var personCounter = 0;
+            int totalCaloriesInSupplies = 0;
+            int totalCaloriesNeededPerDay = 0;
+
+            foreach (var person in App._vmData.personList)
+            {
+                personCounter += 1;
+                totalCaloriesNeededPerDay += person.calorieIntake;
+            }
+
+            foreach (var food in App._vmData.foodList)
+            {
+                totalCaloriesInSupplies += food.calories;
+            }
+
+            try
+            {
+                double daysOfCalories = totalCaloriesInSupplies / totalCaloriesNeededPerDay;
+                App._vmData.foodProgress = Convert.ToInt32((daysOfCalories / GlobalSettings.GlobalSettings.governmentalRecommendedSupplyPeriodInDays) * 100);
+            }
+            catch (Exception)
+            {
+                App._vmData.foodProgress = 0;
             }
         }
     }

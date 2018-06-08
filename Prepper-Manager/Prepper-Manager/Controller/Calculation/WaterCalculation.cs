@@ -58,7 +58,7 @@ namespace Prepper_Manager.Controller.Calculation
             }
             catch (Exception)
             {
-
+                App._vmData.waterProgress = 0;
             }
         }
     }

@@ -54,7 +54,7 @@ namespace Prepper_Manager.View.Pages
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
 
-        private void crd_waterProgress_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void crd_Progress_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             //SnackBarMessage
             var messageQueue = sb_homeSnacker.MessageQueue;

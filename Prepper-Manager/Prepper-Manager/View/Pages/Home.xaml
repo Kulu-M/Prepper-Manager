@@ -57,36 +57,46 @@
                     <TextBlock Grid.Row="3" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" VerticalAlignment="Center" Text="{Binding waterReservesHint}"/>
                 </Grid>
             </materialDesign:Card>
-            <materialDesign:Card x:Name="crd_waterProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_waterProgress_MouseLeftButtonUp">
+            <materialDesign:Card x:Name="crd_waterProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
                 <StackPanel>
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
                         <Run Text="You have reached" FontSize="14"/>
                         <Run Text="{Binding waterProgress}" FontSize="14"/>
                         <Run Text="% of the recommended supply" FontSize="14"/>
                     </TextBlock>
-
-
                     <ProgressBar x:Name="pb_waterProgress" Value="{Binding waterProgress}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="5,0,5,0" />
                 </StackPanel>
             </materialDesign:Card>
         </StackPanel>
 
-        <materialDesign:Card x:Name="crd_food" Cursor="Hand" Height="300" ToolTip="Open your food supply page." Grid.Row="3" Grid.Column="3" materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_food_MouseLeftButtonUp">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="200" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="20" />
-                </Grid.RowDefinitions>
-                <Image Grid.Row="1" Source="/Resources/food.jpg" Height="200" Margin="5"/>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}" VerticalAlignment="Center"  />
-                    <Button Margin="10,0,0,0" VerticalAlignment="Center"  Height="30" Width="30" x:Name="b_warningExpiringFood" Content="{materialDesign:PackIcon AlertBox}" Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" ToolTip="You have expiring Food items!" Click="b_warningExpiringFood_Click" />
+        <StackPanel Grid.Row="3" Grid.Column="3" >
+            <materialDesign:Card x:Name="crd_food" Cursor="Hand" Height="300" ToolTip="Open your food supply page." materialDesign:ShadowAssist.ShadowDepth="Depth5" MouseLeftButtonUp="crd_food_MouseLeftButtonUp">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="1" Source="/Resources/food.jpg" Height="200" Margin="5"/>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}" VerticalAlignment="Center"  />
+                        <Button Margin="10,0,0,0" VerticalAlignment="Center"  Height="30" Width="30" x:Name="b_warningExpiringFood" Content="{materialDesign:PackIcon AlertBox}" Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" ToolTip="You have expiring Food items!" Click="b_warningExpiringFood_Click" />
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+            <materialDesign:Card x:Name="crd_foodProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
+                <StackPanel>
+                    <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
+                        <Run Text="You have reached" FontSize="14"/>
+                        <Run Text="{Binding foodProgress}" FontSize="14"/>
+                        <Run Text="% of the recommended supply" FontSize="14"/>
+                    </TextBlock>
+                    <ProgressBar x:Name="pb_foodProgress" Value="{Binding foodProgress}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="5,0,5,0" />
                 </StackPanel>
-            </Grid>
-        </materialDesign:Card>
+            </materialDesign:Card>
+        </StackPanel>
 
 
         <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." Grid.Row="3" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">

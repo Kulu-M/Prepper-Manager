@@ -100,6 +100,7 @@ namespace Prepper_Manager.ViewModel
                 OnPropertyChanged();
             }
         }
+        public int foodProgress { get; set; }
 
         private string _peopleCountHint;
         public string peopleCountHint
