@@ -26,15 +26,14 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            //RequestEmail.postEmailRequestToEmailAPI(null);
+
             //DEBUG
             //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
             //Thread.Sleep(2000);
             //App._vmData.searchResultsExperimental4 = JsonConvert.DeserializeObject<APIRootObject>(App._vmData.searchResultsExperimental5);
             // object testList = JsonConvert.DeserializeObject(x.ToString());
             //~DEBUG
-
-            var x = App._vmData.searchResultsExperimental5;
-            var y = App._vmData.searchResultsExperimental4;
 
             //Load Saved Data from User
             Load.LoadFromJson();

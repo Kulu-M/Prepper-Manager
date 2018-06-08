@@ -77,6 +77,7 @@
     <Compile Include="Controller\API\APIRootObjectToNutritionValuesStringConverter.cs" />
     <Compile Include="Controller\API\NutritionixAPIKey.cs" />
     <Compile Include="Controller\API\NutritionixAPIKey_Default.cs" />
+    <Compile Include="Controller\API\RequestEmail.cs" />
     <Compile Include="Controller\API\RequestFoodData.cs" />
     <Compile Include="Controller\Calculation\FoodCalculation.cs" />
     <Compile Include="Controller\Calculation\PeopleCalculation.cs" />

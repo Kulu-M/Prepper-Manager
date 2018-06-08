@@ -120,15 +120,15 @@ namespace Prepper_Manager.ViewModel
         #region Testing API Stuff
         //Random TODO cleanup
 
-        public List<JToken> searchResultsExperimental;
+        //public List<JToken> searchResultsExperimental;
 
-        public List<Food> searchResultsExperimental2;
+        //public List<Food> searchResultsExperimental2;
 
-        public object searchResultsExperimental3;
+        //public object searchResultsExperimental3;
 
-        public APIRootObject searchResultsExperimental4;
+        //public APIRootObject searchResultsExperimental4;
 
-        public string searchResultsExperimental5;
+        //public string searchResultsExperimental5;
         //Random ~
         #endregion Testing API Stuff
 

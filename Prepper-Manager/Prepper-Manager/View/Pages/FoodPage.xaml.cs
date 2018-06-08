@@ -135,9 +135,7 @@ namespace Prepper_Manager.View.Pages
             //};
 
             //Release: query API
-
             RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
-
             if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
             {
                 lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
@@ -179,7 +177,6 @@ namespace Prepper_Manager.View.Pages
                 pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;
                 dontUpdate = false;
             });
-
             var searchString = tb_newFoodTextBox.Text;
             bw.RunWorkerAsync(searchString);
         }

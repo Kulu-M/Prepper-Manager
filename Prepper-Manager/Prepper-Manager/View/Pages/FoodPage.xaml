@@ -164,19 +164,12 @@
                             <Binding ElementName="tb_foodCalories" Path="ActualWidth"></Binding>
                         </DatePicker.Width>
                         </DatePicker>
-
-
                     <Expander HorizontalAlignment="Stretch" Margin="0,30,0,0"
                               Header="Nutrition Values">
                         <StackPanel Orientation="Vertical"
                                     TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
                                     Margin="24,8,24,16">
-                            <TextBlock Text="Your Content" />
-                            <TextBlock Opacity=".68" TextWrapping="Wrap">
-                                <TextBlock.Text>
-                                    <Binding ElementName="lb_foodList" Path="SelectedItem.nutritionValuesString" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
-                                </TextBlock.Text>
-                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding SelectedItem.nutritionValuesString, ElementName=lb_foodList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </Expander>
 
