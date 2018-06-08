@@ -26,7 +26,7 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //RequestEmail.postEmailRequestToEmailAPI(null);
+            
 
             //DEBUG
             //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
@@ -42,6 +42,10 @@ namespace Prepper_Manager
             FoodCalculation.calculateFood();
             WaterCalculation.calculateWater();
             PeopleCalculation.calculateNumberOfPeople();
+
+            //DEBUG: Don't send email every time.
+            //RequestEmail.postEmailRequestToEmailAPI(ExpirationCalculation.calculateExpiringFoodItem());
+            //ExpirationCalculation.startExpirationEmailChecker();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

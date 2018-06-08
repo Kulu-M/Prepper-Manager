@@ -39,7 +39,7 @@ namespace Prepper_Manager.Controller.Persistence
 
             var p2 = new Person
             {
-                firstName = "Babsi",
+                firstName = "Barbara",
                 lastName = "Sprick",
                 calorieIntake = 1500,
                 imagePath = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ImageFiles\sprick.jpg"))

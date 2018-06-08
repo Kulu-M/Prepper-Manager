@@ -31,21 +31,6 @@ namespace Prepper_Manager.View.Pages
             gr_mainGrid.DataContext = App._vmData;
         }
 
-        private void b_waterOverview_Click(object sender, RoutedEventArgs e)
-        {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[1];
-        }
-
-        private void b_foodOverview_Click(object sender, RoutedEventArgs e)
-        {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[2];
-        }
-
-        private void b_peopleOverview_Click(object sender, RoutedEventArgs e)
-        {
-            App._vmView.SelectedItem = App._vmView.MainWindowPages[3];
-        }        
-
         private void crd_water_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             App._vmView.SelectedItem = App._vmView.MainWindowPages[1];

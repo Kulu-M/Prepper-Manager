@@ -13,21 +13,22 @@ namespace Prepper_Manager.Controller.API
     {
         public static void postEmailRequestToEmailAPI(List<Model.Food> expiringFoodsList)
         {
+            if (expiringFoodsList == null || expiringFoodsList.Count <= 0) return;
+
             var subject = "You have expiring Food items this week!";
-            var content = "The following items of your Prepper food supplies will expire this week: " + Environment.NewLine;
+            var content = "The following " + expiringFoodsList.Count + " items of your Prepper food supplies will expire this week: " + Environment.NewLine;
 
-            if (expiringFoodsList != null && expiringFoodsList.Count > 0)
+            var count = 1;
+            foreach (var food in expiringFoodsList)
             {
-                foreach (var food in expiringFoodsList)
-                {
-                    content += food.name + "at location: " + food.location;
-                }
+                content += count + ". " + food.name + " at location: " + food.location + "." + Environment.NewLine;
+                count++;
             }
-
+                
             var client = new RestClient("https://api.mailgun.net/v3")
             {
                 Authenticator =
-                new HttpBasicAuthenticator("api", "fcbda4b095841c1c994cd271d998a81c-b892f62e-60e41d9f")
+                    new HttpBasicAuthenticator("api", "fcbda4b095841c1c994cd271d998a81c-b892f62e-60e41d9f")
             };
 
             var request = new RestRequest();

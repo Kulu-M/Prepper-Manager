@@ -78,16 +78,6 @@ namespace Prepper_Manager.View.Pages
 
         }
 
-        private void B_acceptDeleteFood_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DialogHost_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
-        {
-
-        }
-
         private void b_addFood(object sender, RoutedEventArgs e)
         {
 
@@ -179,6 +169,14 @@ namespace Prepper_Manager.View.Pages
             });
             var searchString = tb_newFoodTextBox.Text;
             bw.RunWorkerAsync(searchString);
+        }
+
+        private void b_warningExpiringFood_Click(object sender, RoutedEventArgs e)
+        {
+            //SnackBarMessage
+            var messageQueue = sb_homeSnacker.MessageQueue;
+            var message = "This item is expiring. You should consume and replace it!";
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
     }
 }

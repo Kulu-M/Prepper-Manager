@@ -121,7 +121,8 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding name}"/>                                        
+                                        <TextBlock Text="{Binding name}" VerticalAlignment="Center"/>
+                                        <Button Visibility="{Binding expiring}" Margin="10,0,0,0" VerticalAlignment="Center" Height="30" Width="30" x:Name="b_warningExpiringFood" Content="{materialDesign:PackIcon AlertBox}" Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" ToolTip="This item is expiring this week!" Click="b_warningExpiringFood_Click" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -194,7 +195,12 @@
                         </Button>
                     </StackPanel>
                 </materialDesign:PopupBox>
-                
+
+                <showMeTheXaml:XamlDisplay Grid.Row="3" Grid.Column="0" Margin="0,0,0,0" Grid.ColumnSpan="3" Key="snackbar" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
+                                             x:Name="sb_homeSnacker" />
+                </showMeTheXaml:XamlDisplay>
+
             </Grid>
             
            
