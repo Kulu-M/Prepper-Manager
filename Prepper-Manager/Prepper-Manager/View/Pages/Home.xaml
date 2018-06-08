@@ -62,7 +62,7 @@
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
                         <Run Text="You have reached" FontSize="14"/>
                         <Run Text="{Binding waterProgress}" FontSize="14"/>
-                        <Run Text="% of the recommended supply" FontSize="14"/>
+                        <Run Text="% of the recommended water supplies." FontSize="14"/>
                     </TextBlock>
                     <ProgressBar x:Name="pb_waterProgress" Value="{Binding waterProgress}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="5,0,5,0" />
                 </StackPanel>
@@ -91,7 +91,7 @@
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
                         <Run Text="You have reached" FontSize="14"/>
                         <Run Text="{Binding foodProgress}" FontSize="14"/>
-                        <Run Text="% of the recommended supply" FontSize="14"/>
+                        <Run Text="% of the recommended food supplies." FontSize="14"/>
                     </TextBlock>
                     <ProgressBar x:Name="pb_foodProgress" Value="{Binding foodProgress}" materialDesign:TransitionAssist.DisableTransitions="True" Margin="5,0,5,0" />
                 </StackPanel>

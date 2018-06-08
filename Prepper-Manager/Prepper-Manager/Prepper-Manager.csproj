@@ -180,6 +180,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\EmailTemplate\images\food-supply.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\EmailTemplate\PreppyMail.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\EmailTemplate\PreppyMailImageUrl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="icon.ico" />
     <Content Include="ImageFiles\default.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

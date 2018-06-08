@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Prepper_Manager.Controller.API;
 using Prepper_Manager.Controller.TipOfTheDay;
 using Prepper_Manager.ViewModel;
 using Prepper_Manager.Controller.Persistence;
@@ -55,6 +56,11 @@ namespace Prepper_Manager
             var messageQueue = sb_deletedFoodSnackBar.MessageQueue;
             var message = "Restored sample data.";            
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
+        }
+
+        private void b_sendHtmlEmail_Click(object sender, RoutedEventArgs e)
+        {
+            RequestEmail.postEmailRequestToEmailAPIWithHTMLBody();
         }
     }
 }

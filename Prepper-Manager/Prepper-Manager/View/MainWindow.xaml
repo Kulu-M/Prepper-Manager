@@ -44,7 +44,8 @@
 
                         </ListBox>
                         <Button x:Name="b_restoreSampleData" Width="190" Height="25" Content="Restore sample data" Click="b_restoreSampleData_Click"></Button>
-                    </StackPanel>
+                        <Button Margin="0,20,00,00" x:Name="b_sendHtmlEmail" Width="190" Height="25" Content="Send Test Mail" Click="b_sendHtmlEmail_Click"></Button>
+                        </StackPanel>
                 </DockPanel>
             </wpf:DrawerHost.LeftDrawerContent>
 
