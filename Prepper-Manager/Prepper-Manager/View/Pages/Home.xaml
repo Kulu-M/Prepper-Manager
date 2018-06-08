@@ -58,7 +58,7 @@
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card x:Name="crd_waterProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
-                <StackPanel>
+                <StackPanel VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
                         <Run Text="You have reached" FontSize="14"/>
                         <Run Text="{Binding waterProgress}" FontSize="14"/>
@@ -87,7 +87,7 @@
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card x:Name="crd_foodProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
-                <StackPanel>
+                <StackPanel VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
                         <Run Text="You have reached" FontSize="14"/>
                         <Run Text="{Binding foodProgress}" FontSize="14"/>
@@ -99,7 +99,8 @@
         </StackPanel>
 
 
-        <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." Grid.Row="3" Grid.Column="5" materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">
+        <StackPanel Grid.Row="3" Grid.Column="5" >
+        <materialDesign:Card x:Name="crd_household" Cursor="Hand" ToolTip="Open your household page." materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="300" MouseLeftButtonUp="crd_household_MouseLeftButtonUp">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
@@ -112,6 +113,12 @@
                 <TextBlock VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding peopleCountHint}"/>
             </Grid>
         </materialDesign:Card>
+            <materialDesign:Card x:Name="crd_calorieConsumption" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Calorie Consumption" MouseLeftButtonUp="crd_CalorieConsumption_MouseLeftButtonUp">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock  FontSize="14" Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap" Text="{Binding totalCalorieConsumption}"/>
+                </StackPanel>
+            </materialDesign:Card>
+        </StackPanel>
 
         <materialDesign:Card VerticalAlignment="Bottom" materialDesign:ShadowAssist.ShadowDepth="Depth5" Padding="32" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5">
             <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding tipOfTheDay}"></TextBlock>

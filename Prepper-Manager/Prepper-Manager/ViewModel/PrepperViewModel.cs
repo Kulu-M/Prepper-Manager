@@ -72,6 +72,16 @@ namespace Prepper_Manager.ViewModel
         #endregion Lists - Water, Food, People
 
         #region Main Page Status Messages
+
+        public string totalCalorieConsumption
+        {
+            get
+            {
+                return "Your household needs " + PeopleCalculation.calculateTotalDailyCalorieConsumption() +
+                       " calories per Day.";
+            }
+        }
+
         private string _waterReservesHint;
         public string waterReservesHint
         {

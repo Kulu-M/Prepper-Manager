@@ -61,5 +61,13 @@ namespace Prepper_Manager.View.Pages
             var message = "Governmental recommendation: 2 weeks of water and food.";
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));            
         }
+
+        private void crd_CalorieConsumption_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //SnackBarMessage
+            var messageQueue = sb_homeSnacker.MessageQueue;
+            var message = "Your household has a daily calorie consumption of " + App._vmData.totalCalorieConsumption + " calories.";
+            Task.Factory.StartNew(() => messageQueue.Enqueue(message));
+        }
     }
 }
