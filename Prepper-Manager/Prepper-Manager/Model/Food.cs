@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Prepper_Manager.Annotations;
+using Prepper_Manager.Controller.Calculation;
 
 namespace Prepper_Manager.Model
 {
@@ -16,7 +17,21 @@ namespace Prepper_Manager.Model
         public string servingUnit { get; set; }
         public string itemName { get; set; }
         public string brandName { get; set; }
-        public int calories { get; set; }
+
+        private int _calories;
+        public int calories
+        {
+            get
+            {
+                return _calories;
+            }
+            set
+            {
+                FoodCalculation.calculateFood();
+                _calories = value;
+            }
+        }
+
         public string location { get; set; }
         public DateTime expirationDate { get; set; }
 

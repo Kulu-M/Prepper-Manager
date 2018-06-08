@@ -27,8 +27,15 @@ namespace Prepper_Manager.Controller.Calculation
             totalWaterLastingDays = Math.Round(totalWaterCount / (personCounter *
                                     GlobalSettings.GlobalSettings.waterConsumptionPerDayPerPersonInLiter));
 
-
-            App._vmData.waterReservesHint = "You have " + totalWaterLastingDays + " days of water";
+            
+            if (totalWaterLastingDays >= 1)
+            {
+                App._vmData.waterReservesHint = "Your water won't last a day!";
+            }
+            else
+            {
+                App._vmData.waterReservesHint = "You have " + totalWaterLastingDays + " days of water";
+            }
             calculateWaterProgress();
         }
 
@@ -54,7 +61,15 @@ namespace Prepper_Manager.Controller.Calculation
 
             try
             {
-                App._vmData.waterProgress = Convert.ToInt32((totalWaterCount / neededWater) * 100);
+                var percentageOfRecommendedSuppliesWater = Convert.ToInt32((totalWaterCount / neededWater) * 100);
+                if (percentageOfRecommendedSuppliesWater >= 100)
+                {
+                    App._vmData.waterProgress = 100;
+                }
+                else
+                {
+                    App._vmData.waterProgress = percentageOfRecommendedSuppliesWater;
+                }
             }
             catch (Exception)
             {

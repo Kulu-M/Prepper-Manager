@@ -89,9 +89,27 @@ namespace Prepper_Manager.Controller.Persistence
                 expirationDate = DateTime.Now + TimeSpan.FromDays(30)
             };
 
+            var f4 = new Food
+            {
+                name = "Can of Tuna",
+                calories = 100,
+                location = "Basement",
+                expirationDate = DateTime.Now + TimeSpan.FromDays(2)
+            };
+
+            var f5 = new Food
+            {
+                name = "Korean Cup Noodles Soup Shin Ramyun",
+                calories = 5,
+                location = "Kitchen",
+                expirationDate = DateTime.Now + TimeSpan.FromDays(130)
+            };
+
             App._vmData.foodList.Add(f1);
             App._vmData.foodList.Add(f2);
             App._vmData.foodList.Add(f3);
+            App._vmData.foodList.Add(f4);
+            App._vmData.foodList.Add(f5);
 
             FoodCalculation.calculateFood();
         }

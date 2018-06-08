@@ -66,7 +66,7 @@ namespace Prepper_Manager.View.Pages
         {
             //SnackBarMessage
             var messageQueue = sb_homeSnacker.MessageQueue;
-            var message = "Your household has a daily calorie consumption of " + App._vmData.totalCalorieConsumption + " calories.";
+            var message = App._vmData.totalCalorieConsumption;
             Task.Factory.StartNew(() => messageQueue.Enqueue(message));
         }
     }

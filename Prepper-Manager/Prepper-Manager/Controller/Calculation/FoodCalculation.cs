@@ -31,7 +31,7 @@ namespace Prepper_Manager.Controller.Calculation
                 var daysOfFoodSupplies = Decimal.Round(totalCaloriesStored / dailyCalorieConsumption);
                 if (daysOfFoodSupplies <= 1)
                 {
-                    App._vmData.foodReservesHint = "Your supplies won't last a day!";
+                    App._vmData.foodReservesHint = "Your food won't last a day!";
                 }
                 else
                 {
@@ -68,7 +68,19 @@ namespace Prepper_Manager.Controller.Calculation
             try
             {
                 double daysOfCalories = totalCaloriesInSupplies / totalCaloriesNeededPerDay;
-                App._vmData.foodProgress = Convert.ToInt32((daysOfCalories / GlobalSettings.GlobalSettings.governmentalRecommendedSupplyPeriodInDays) * 100);
+                var percentageOfRecommendedSuppliesFood =
+                    Convert.ToInt32((daysOfCalories /
+                                     GlobalSettings.GlobalSettings.governmentalRecommendedSupplyPeriodInDays) * 100);
+                if (percentageOfRecommendedSuppliesFood >= 100)
+                {
+                    App._vmData.foodProgress = 100;
+                }
+                else
+                {
+                    App._vmData.foodProgress = percentageOfRecommendedSuppliesFood;
+                }
+
+                
             }
             catch (Exception)
             {

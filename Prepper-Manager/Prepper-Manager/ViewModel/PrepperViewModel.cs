@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prepper_Manager.Annotations;
@@ -72,6 +73,19 @@ namespace Prepper_Manager.ViewModel
         #endregion Lists - Water, Food, People
 
         #region Main Page Status Messages
+
+        public Visibility anyExpiringFoodItemsPresent
+        {
+            get
+            {
+                var expiringFoods = App._vmData.foodList.Where(food => food.expiring == Visibility.Visible);
+                if (expiringFoods.Any())
+                {
+                    return Visibility.Visible;
+                }
+                return Visibility.Collapsed;
+            }
+        }
 
         public string totalCalorieConsumption
         {

@@ -16,7 +16,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Preppy" Height="830" Width="1200"
+        Title="Preppy" Height="830" Width="1300"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MinHeight="815">
 
 

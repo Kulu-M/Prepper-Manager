@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using MaterialDesignThemes.Wpf;
 using Prepper_Manager.Controller.API;
+using Prepper_Manager.Controller.Calculation;
 
 namespace Prepper_Manager.View.Pages
 {
@@ -93,6 +94,8 @@ namespace Prepper_Manager.View.Pages
 
             var foodToRemove = lb_foodList.SelectedItem as Model.Food;
             App._vmData.foodList.Remove(foodToRemove);
+
+            FoodCalculation.calculateFood();
 
             //SnackBarMessage
             var messageQueue = sb_deletedFoodSnackBar.MessageQueue;

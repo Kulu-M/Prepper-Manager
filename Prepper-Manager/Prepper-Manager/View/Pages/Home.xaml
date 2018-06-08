@@ -60,7 +60,7 @@
             <materialDesign:Card x:Name="crd_waterProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
-                        <Run Text="You have reached" FontSize="14"/>
+                        <Run Text="You have stashed" FontSize="14"/>
                         <Run Text="{Binding waterProgress}" FontSize="14"/>
                         <Run Text="% of the recommended water supplies." FontSize="14"/>
                     </TextBlock>
@@ -82,14 +82,14 @@
                     <Image Grid.Row="1" Source="/Resources/food.jpg" Height="200" Margin="5"/>
                     <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock  Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding foodReservesHint}" VerticalAlignment="Center"  />
-                        <Button Margin="10,0,0,0" VerticalAlignment="Center"  Height="30" Width="30" x:Name="b_warningExpiringFood" Content="{materialDesign:PackIcon AlertBox}" Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" ToolTip="You have expiring Food items!" Click="b_warningExpiringFood_Click" />
+                        <Button Visibility="{Binding anyExpiringFoodItemsPresent}" Margin="10,0,0,0" VerticalAlignment="Center"  Height="30" Width="30" x:Name="b_warningExpiringFood" Content="{materialDesign:PackIcon AlertBox}" Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" ToolTip="You have expiring Food items!" Click="b_warningExpiringFood_Click" />
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card x:Name="crd_foodProgress" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Governmental recommendation" MouseLeftButtonUp="crd_Progress_MouseLeftButtonUp">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap">
-                        <Run Text="You have reached" FontSize="14"/>
+                        <Run Text="You have stashed" FontSize="14"/>
                         <Run Text="{Binding foodProgress}" FontSize="14"/>
                         <Run Text="% of the recommended food supplies." FontSize="14"/>
                     </TextBlock>
@@ -115,7 +115,7 @@
         </materialDesign:Card>
             <materialDesign:Card x:Name="crd_calorieConsumption" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Calorie Consumption" MouseLeftButtonUp="crd_CalorieConsumption_MouseLeftButtonUp">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock  FontSize="14" Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap" Text="{Binding totalCalorieConsumption}"/>
+                    <TextBlock FontSize="14" Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap" Text="{Binding totalCalorieConsumption}"/>
                 </StackPanel>
             </materialDesign:Card>
         </StackPanel>
