@@ -97,12 +97,20 @@ namespace Prepper_Manager.ViewModel
             }
         }
 
+        private string _totalCalorieConsumption;
         public string totalCalorieConsumption
         {
             get
             {
-                return "Your household needs " + PeopleCalculation.calculateTotalDailyCalorieConsumption() +
-                       " calories per Day.";
+                _totalCalorieConsumption = "Your household needs " + PeopleCalculation.calculateTotalDailyCalorieConsumption() +
+                    " calories per Day.";
+                return _totalCalorieConsumption;
+            }
+            set
+            {
+                _totalCalorieConsumption = "Your household needs " + PeopleCalculation.calculateTotalDailyCalorieConsumption() +
+                                           " calories per Day.";
+                OnPropertyChanged();
             }
         }
 

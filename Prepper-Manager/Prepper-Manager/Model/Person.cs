@@ -25,6 +25,8 @@ namespace Prepper_Manager.Model
             {
                 _calorieIntake = value;
                 FoodCalculation.calculateFood();
+                //Just to force an updaten on VM
+                App._vmData.totalCalorieConsumption = "";
             }
         }
 

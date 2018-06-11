@@ -39,7 +39,10 @@ namespace Prepper_Manager.View.Pages
 
             PeopleCalculation.calculateNumberOfPeople();
             WaterCalculation.calculateWater();
-            FoodCalculation.calculateFood();            
+            FoodCalculation.calculateFood();
+
+            //Just to force an updaten on VM
+            App._vmData.totalCalorieConsumption = "";
         }
 
         private void b_acceptDeletePerson_OnClick(object sender, RoutedEventArgs e)
@@ -49,6 +52,9 @@ namespace Prepper_Manager.View.Pages
             PeopleCalculation.calculateNumberOfPeople();
             WaterCalculation.calculateWater();
             FoodCalculation.calculateFood();
+
+            //Just to force an updaten on VM
+            App._vmData.totalCalorieConsumption = "";
         }
     }
 }
