@@ -73,7 +73,6 @@
                         <StackPanel Orientation="Vertical"
                                     TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
                                     Margin="24,8,24,16">
-                            <TextBlock Text="Hello World" />
                             <TextBlock x:Name="tb_temporaryNutritionValuesTextBox"  MaxWidth="250" Opacity=".68"
                                        TextWrapping="Wrap"/>
                         </StackPanel>
@@ -200,7 +199,7 @@
                     <materialDesign:Snackbar MessageQueue="{materialDesign:MessageQueue}"
                                              x:Name="sb_homeSnacker" />
                 </showMeTheXaml:XamlDisplay>
-
+                
             </Grid>
             
            

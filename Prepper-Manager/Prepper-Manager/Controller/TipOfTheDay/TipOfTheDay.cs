@@ -17,9 +17,14 @@ namespace Prepper_Manager.Controller.TipOfTheDay
         //TODO extract tips from other source
         public static ObservableCollection<string> tipsOfTheDay = new ObservableCollection<string>
         {
-            "Tip of the Day: Lore preppus maximus dolor sit prepparatum amet.",
-            "Tip of the Day: Never burn down your house.",
-            "Tip of the Day: Go insde when it rains or you will get wet about 76% of times."
+            "Tip of the Day: Store batteries inside a feeze - that way they last longer.",
+            "Tip of the Day: Keep your supplies in a dry and cool spot.",
+            "Tip of the Day: Seal your supplies to prevent pests from getting the hold of them.",
+            "Tip of the Day: In case of an emergency you can fill up your bathtub with water.",
+            "Tip of the Day: Many governments recommend having supplies for bad times.",
+            "Tip of the Day: Never overcharge oder overdischarge your Li-Ion devices.",
+            "Tip of the Day: An average human can survive 3 days without water.",
+            "Tip of the Day: An average human can survive 30 days without food.",
         };
 
         public static int counterList;
@@ -27,7 +32,7 @@ namespace Prepper_Manager.Controller.TipOfTheDay
         public static void startTipOfTheDayChanger()
         {
             Thread.CurrentThread.IsBackground = true;
-            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(3)};
+            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(10)};
             timer.Tick += timer_Tick;
             timer.Start();
         }
@@ -59,3 +64,4 @@ namespace Prepper_Manager.Controller.TipOfTheDay
         }
     }
 }
+

@@ -26,10 +26,10 @@ namespace Prepper_Manager.ViewModel
 
         public PrepperViewModel()
         {
+            apiSearchResults = new List<string>();
             foodList.CollectionChanged += FoodListOnCollectionChanged;
         }
 
-        // https://msdn.microsoft.com/en-us/library/ms653375.aspx?f=255&MSPPError=-2147217396
         private void FoodListOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Remove)
@@ -74,6 +74,7 @@ namespace Prepper_Manager.ViewModel
 
         #region Main Page Status Messages
 
+        private Visibility _anyExpiringFoodItemsPresent;
         public Visibility anyExpiringFoodItemsPresent
         {
             get
@@ -81,9 +82,18 @@ namespace Prepper_Manager.ViewModel
                 var expiringFoods = App._vmData.foodList.Where(food => food.expiring == Visibility.Visible);
                 if (expiringFoods.Any())
                 {
-                    return Visibility.Visible;
+                    _anyExpiringFoodItemsPresent = Visibility.Visible;
+                    //OnPropertyChanged();
+                    return _anyExpiringFoodItemsPresent;
                 }
-                return Visibility.Collapsed;
+                _anyExpiringFoodItemsPresent = Visibility.Collapsed;
+                //OnPropertyChanged();
+                return _anyExpiringFoodItemsPresent;
+            }
+            set
+            {
+                _anyExpiringFoodItemsPresent = value;
+                OnPropertyChanged();
             }
         }
 

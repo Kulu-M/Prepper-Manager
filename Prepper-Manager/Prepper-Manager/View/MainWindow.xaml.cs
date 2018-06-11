@@ -62,5 +62,10 @@ namespace Prepper_Manager
         {
             RequestEmail.postEmailRequestToEmailAPIWithHTMLBody();
         }
+
+        private void b_debug_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(App._vmData.anyExpiringFoodItemsPresent);
+        }
     }
 }

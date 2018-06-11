@@ -23,6 +23,8 @@ namespace Prepper_Manager.Controller.API
         /// 
         public static void queryFoodByName(string searchItem, bool searchForBrandItems = false)
         {
+            //App._vmData.apiSearchResults = new List<string>();
+
             var client = new RestClient("https://www.nutritionix.com");
 
             var request = new RestRequest("/track-api/v2/search/instant?branded=false&common=true&query={id}&self=false", Method.GET);
@@ -38,8 +40,14 @@ namespace Prepper_Manager.Controller.API
                 if (r.ResponseStatus == ResponseStatus.Completed)
                 {
                     App._vmData.apiSearchResults = (JObject.Parse(r.Content)["common"].Select(p => p["food_name"].Value<string>()).ToList());
+
+                    Console.WriteLine("API sent these items: ");
+                    foreach (var item in App._vmData.apiSearchResults)
+                    {
+                        Console.WriteLine(item);
+                    }
                 }
-            });
+            });            
         }
 
         public static APIRootObject getNutritionValuesForSpecificFoodItemCommon(string searchItem)

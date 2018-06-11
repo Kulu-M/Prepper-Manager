@@ -114,7 +114,7 @@
             </Grid>
         </materialDesign:Card>
             <materialDesign:Card x:Name="crd_calorieConsumption" Cursor="Hand" Margin="0,10,0,0" Height="100" ToolTip="Calorie Consumption" MouseLeftButtonUp="crd_CalorieConsumption_MouseLeftButtonUp">
-                <StackPanel VerticalAlignment="Center">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock FontSize="14" Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="10,10,10,10" TextWrapping="Wrap" Text="{Binding totalCalorieConsumption}"/>
                 </StackPanel>
             </materialDesign:Card>

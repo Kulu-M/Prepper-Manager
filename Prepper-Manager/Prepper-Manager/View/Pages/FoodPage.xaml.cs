@@ -71,7 +71,6 @@ namespace Prepper_Manager.View.Pages
 
         private void DialogHost_AddFood_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
         {
-
         }
 
         private void lb_foodList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -141,7 +140,7 @@ namespace Prepper_Manager.View.Pages
                 lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
             }
 
-            pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;            
+            pb_AddFoodLoadingBar.Visibility = Visibility.Hidden;
         }
 
         private void lb_searchResults_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -162,10 +161,10 @@ namespace Prepper_Manager.View.Pages
                 delegate (object o, DoWorkEventArgs args)
                 {
                     BackgroundWorker b = o as BackgroundWorker;
-                            
+
                     //Set the result and do the API Request
-                    args.Result = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(args.Argument as string);                  
-            });           
+                    args.Result = RequestFoodData.getNutritionValuesForSpecificFoodItemCommon(args.Argument as string);
+                });
 
             // what to do when worker completes its task (notify the user)
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(

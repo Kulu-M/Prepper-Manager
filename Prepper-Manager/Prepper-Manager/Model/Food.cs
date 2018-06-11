@@ -33,18 +33,49 @@ namespace Prepper_Manager.Model
         }
 
         public string location { get; set; }
-        public DateTime expirationDate { get; set; }
 
+        private DateTime _expirationDate;
+        public DateTime expirationDate
+        {
+            get
+            {
+                return _expirationDate;
+            }
+            set
+            {
+                var time = value - DateTime.Now;
+                if (time < TimeSpan.FromDays(7))
+                {
+                    expiring = Visibility.Visible;
+                }
+                else
+                {
+                    expiring = Visibility.Collapsed;
+                }
+                _expirationDate = value;
+                if (ExpirationCalculation.calculateExpiringFoodItem().Any())
+                {
+                    App._vmData.anyExpiringFoodItemsPresent = Visibility.Visible;
+                }
+                else
+                {
+                    App._vmData.anyExpiringFoodItemsPresent = Visibility.Collapsed;
+                }
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _expiring;
         public Visibility expiring
         {
             get
             {
-                var time = expirationDate - DateTime.Now;
-                if (time < TimeSpan.FromDays(7))
-                {
-                    return Visibility.Visible;
-                }
-                return Visibility.Collapsed;
+                return _expiring;
+            }
+            set
+            {
+                _expiring = value;
+                OnPropertyChanged();
             }
         }
 
@@ -57,7 +88,7 @@ namespace Prepper_Manager.Model
             location = "";
         }
         #endregion Constructor
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
