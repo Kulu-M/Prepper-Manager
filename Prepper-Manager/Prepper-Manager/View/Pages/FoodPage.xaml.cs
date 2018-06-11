@@ -80,7 +80,9 @@ namespace Prepper_Manager.View.Pages
 
         private void b_addFood(object sender, RoutedEventArgs e)
         {
-
+            App._vmData.apiSearchResults = new List<string>();
+            lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
+            tb_newFoodTextBox.Text = "";
         }
 
         private void b_removeFood(object sender, RoutedEventArgs e)

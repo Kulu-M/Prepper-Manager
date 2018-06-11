@@ -28,7 +28,7 @@ namespace Prepper_Manager.Controller.Calculation
                                     GlobalSettings.GlobalSettings.waterConsumptionPerDayPerPersonInLiter));
 
             
-            if (totalWaterLastingDays >= 1)
+            if (totalWaterLastingDays <= 1)
             {
                 App._vmData.waterReservesHint = "Your water won't last a day!";
             }
