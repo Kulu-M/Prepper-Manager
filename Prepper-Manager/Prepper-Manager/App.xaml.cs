@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,6 +38,17 @@ namespace Prepper_Manager
 
             //Load Saved Data from User
             Load.LoadFromJson();
+
+            //Language
+            if (_vmData.cultureInfo != null)
+            {
+                Thread.CurrentThread.CurrentUICulture = _vmData.cultureInfo;
+            }
+            else
+            {
+                _vmData.cultureInfo = Thread.CurrentThread.CurrentUICulture;
+            }
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
 
             //Initial Calculations based on stored values
             FoodCalculation.calculateFood();

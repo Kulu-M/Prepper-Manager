@@ -1,8 +1,10 @@
 ﻿using Prepper_Manager.View;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +37,46 @@ namespace Prepper_Manager
         {
             DataContext = App._vmView;
             TipOfTheDay.startTipOfTheDayChanger();
+
+            loadLanguages();
+            cb_langBox.SelectionChanged += cb_langBox_SelectionChanged;
+        }
+
+        /// <summary>
+        /// Load all languages which are present on the pc and add them to the sidebar cb
+        /// </summary>
+        private void loadLanguages()
+        {
+            foreach (var ci in CultureInfo.GetCultures(CultureTypes.AllCultures)
+                .Where(ci => ci.Calendar is GregorianCalendar)
+                .OrderBy(ci => ci.Name))
+            {
+                cb_langBox.Items.Add(ci.Name);
+            }
+            cb_langBox.SelectedItem = App._vmData.cultureInfo.Name;
+        }
+
+        private void cb_langBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = cb_langBox.SelectedItem as String;
+            if (string.IsNullOrWhiteSpace(selectedItem)) return;
+
+            if (selectedItem == "en-US")
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                App._vmData.cultureInfo = new CultureInfo("en-US");
+            }
+            else if (selectedItem == "de-DE")
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
+                App._vmData.cultureInfo = new CultureInfo("de-DE");
+            }
+           
+            //Safe, Wait a bit, then restart the application to change the language in the UI Thread
+            Save.SaveToJson();
+            Task.Delay(200);
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

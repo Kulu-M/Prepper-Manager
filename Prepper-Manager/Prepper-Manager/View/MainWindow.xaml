@@ -8,6 +8,7 @@
         xmlns:mainWindow="clr-namespace:Prepper_Manager.ViewModel.MainWindow"
         xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         xmlns:showMeTheXaml="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+        xmlns:p="clr-namespace:Prepper_Manager.Properties"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -16,7 +17,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Preppy" Height="830" Width="1300"
+        Title="{x:Static p:Resources.ApplicationName}" Height="830" Width="1300"
         WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MinHeight="815">
 
 
@@ -46,6 +47,15 @@
                         <Button x:Name="b_restoreSampleData" Width="190" Height="25" Content="Restore sample data" Click="b_restoreSampleData_Click"></Button>
                         <Button Margin="0,20,00,00" x:Name="b_sendHtmlEmail" Width="190" Height="25" Content="Send Test Mail" Click="b_sendHtmlEmail_Click"></Button>
                             <Button Margin="0,20,00,00" x:Name="b_debug" Width="190" Height="25" Content="DEBUG" Click="b_debug_Click"></Button>
+                            <ComboBox Margin="0,20,00,00" HorizontalAlignment="Center"
+                            Name="cb_langBox"
+                            Width="50">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
                         </StackPanel>
                 </DockPanel>
             </wpf:DrawerHost.LeftDrawerContent>
@@ -60,7 +70,7 @@
                 <!--region Content-->
 
                 <ScrollViewer>
-                    <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
+                    <ContentControl Content="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Content}" />
                 </ScrollViewer>
 
                 

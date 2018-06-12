@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -22,12 +23,15 @@ namespace Prepper_Manager.ViewModel
 {
     public class PrepperViewModel : INotifyPropertyChanged
     {
+        public CultureInfo cultureInfo;
+
         #region Constructor / Destructor
 
         public PrepperViewModel()
         {
             apiSearchResults = new List<string>();
             foodList.CollectionChanged += FoodListOnCollectionChanged;
+            cultureInfo = System.Threading.Thread.CurrentThread.CurrentUICulture;
         }
 
         private void FoodListOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
