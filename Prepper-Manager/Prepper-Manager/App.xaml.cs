@@ -27,16 +27,7 @@ namespace Prepper_Manager
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            
-
-            //DEBUG
-            //RequestFoodData.getNutritionValuesForSpecificFoodItemCommon("pasta");
-            //Thread.Sleep(2000);
-            //App._vmData.searchResultsExperimental4 = JsonConvert.DeserializeObject<APIRootObject>(App._vmData.searchResultsExperimental5);
-            // object testList = JsonConvert.DeserializeObject(x.ToString());
-            //~DEBUG
-
-            //Load Saved Data from User
+            //Load Saved Data from User (ViewModel)
             Load.LoadFromJson();
 
             //Language
@@ -48,7 +39,6 @@ namespace Prepper_Manager
             {
                 _vmData.cultureInfo = Thread.CurrentThread.CurrentUICulture;
             }
-            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("de-DE");
 
             //Initial Calculations based on stored values
             FoodCalculation.calculateFood();

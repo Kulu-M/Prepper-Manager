@@ -23,6 +23,8 @@ namespace Prepper_Manager.ViewModel
 {
     public class PrepperViewModel : INotifyPropertyChanged
     {
+
+        //Variable to store the culture selection of the User
         public CultureInfo cultureInfo;
 
         #region Constructor / Destructor
