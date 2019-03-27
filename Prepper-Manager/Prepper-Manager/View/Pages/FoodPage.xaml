@@ -144,6 +144,12 @@
                         </TextBox.Text>
                     </TextBox>
 
+                    <TextBox materialDesign:HintAssist.Hint="Count" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
+                        <TextBox.Text>
+                            <Binding ElementName="lb_foodList" Path="SelectedItem.count" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>
+                        </TextBox.Text>
+                    </TextBox>
+
                     <TextBox x:Name="tb_foodCalories" materialDesign:HintAssist.Hint="Total Calories" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"  Margin="0,40,0,0">
                         <TextBox.Text>
                             <Binding ElementName="lb_foodList" Path="SelectedItem.calories" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay"/>

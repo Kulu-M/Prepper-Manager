@@ -18,7 +18,7 @@ namespace Prepper_Manager.Controller.Calculation
 
             foreach (var food in App._vmData.foodList)
             {
-                totalCaloriesStored += food.calories;
+                totalCaloriesStored += food.calories * food.count;
             }
 
             foreach (var person in App._vmData.personList)

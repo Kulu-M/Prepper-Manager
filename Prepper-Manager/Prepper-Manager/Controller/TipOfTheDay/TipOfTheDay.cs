@@ -17,7 +17,7 @@ namespace Prepper_Manager.Controller.TipOfTheDay
         //TODO extract tips from other source
         public static ObservableCollection<string> tipsOfTheDay = new ObservableCollection<string>
         {
-            "Tip of the Day: Store batteries inside a feeze - that way they last longer.",
+            "Tip of the Day: Store batteries inside a freezer - that way they last longer.",
             "Tip of the Day: Keep your supplies in a dry and cool spot.",
             "Tip of the Day: Seal your supplies to prevent pests from getting the hold of them.",
             "Tip of the Day: In case of an emergency you can fill up your bathtub with water.",

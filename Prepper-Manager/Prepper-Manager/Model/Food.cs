@@ -17,6 +17,7 @@ namespace Prepper_Manager.Model
         public string servingUnit { get; set; }
         public string itemName { get; set; }
         public string brandName { get; set; }
+        public int count { get; set; }
 
         private int _calories;
         public int calories

@@ -67,6 +67,8 @@ namespace Prepper_Manager.View.Pages
 
             temporaryNutritionValuesString = "";
             temporaryFood = null;
+
+            FoodCalculation.calculateFood();
         }
 
         private void DialogHost_AddFood_OnDialogClosing(object sender, DialogClosingEventArgs eventargs)
@@ -80,8 +82,8 @@ namespace Prepper_Manager.View.Pages
 
         private void b_addFood(object sender, RoutedEventArgs e)
         {
-            App._vmData.apiSearchResults = new List<string>();
-            lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
+            //App._vmData.apiSearchResults = new List<string>();
+            //lb_searchResults.ItemsSource = App._vmData.apiSearchResults;
             tb_newFoodTextBox.Text = "";
         }
 
@@ -136,7 +138,7 @@ namespace Prepper_Manager.View.Pages
             //};
 
             //Release: query API
-            RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
+            //RequestFoodData.queryFoodByName(tb_newFoodTextBox.Text);
             if (App._vmData.apiSearchResults != null && App._vmData.apiSearchResults.Count > 0)
             {
                 lb_searchResults.ItemsSource = App._vmData.apiSearchResults.Take(7);
